@@ -55,8 +55,14 @@ var styleguide = (function(){
 
   var makeHeader = function(patterns){
     $.get(getTemplate('header'), function(template) {
-      var menu = buildMenu(patterns);
-      var rendered = Mustache.render(template, {patternMenu: menu});
+      var menus = {
+        atoms: buildMenu(patterns.atoms),
+        molecules: buildMenu(patterns.molecules),
+        organisms: buildMenu(patterns.organisms),
+        templates: buildMenu(patterns.templates),
+        pages: buildMenu(patterns.pages),
+      };
+      var rendered = Mustache.render(template, {patterns: menus});
       $('body').append(rendered);
     });
   };
