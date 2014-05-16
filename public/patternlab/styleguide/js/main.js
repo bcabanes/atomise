@@ -63,9 +63,18 @@ var styleguide = (function(){
         pages: buildMenu(patterns.pages),
       };
       var rendered = Mustache.render(template, {patterns: menus});
-      $('body').append(rendered);
+      $('header.sg--header').append(rendered);
     });
   };
+
+  var viewPattern = function(patterns, arg){
+    if(arg == 'all'){
+      var pattern;
+      for(pattern in patterns){
+console.log(pattern, typeof pattern);
+      }
+    }
+  }
 
 
   /******* PUBLIC METHODS *******/
@@ -75,6 +84,7 @@ var styleguide = (function(){
       $.get('patternlab/sources/patterns.json', function(patterns) {
 // console.log(patterns);
         makeHeader(patterns);
+        viewPattern(patterns, 'all');
       });
     }
   }
