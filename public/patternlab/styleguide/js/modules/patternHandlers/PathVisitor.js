@@ -1,7 +1,8 @@
 PathVisitor.prototype = new Visitor();
 
-function PathVisitor() {
+function PathVisitor(originPath) {
     this.path = [];
+    this.origin = originPath;
 }
 
 PathVisitor.prototype.visitBeforeSons = function(node) {
@@ -13,7 +14,7 @@ PathVisitor.prototype.visitAfterSons = function(node) {
 }
 
 PathVisitor.prototype.begin = function(node) {
-    node.setPath(this.path.join("/") + "/" + node.getValue());
+    node.setPath('#'+this.path.join("/") + "/" + node.getValue());
 }
 
 PathVisitor.prototype.end = function(node) {

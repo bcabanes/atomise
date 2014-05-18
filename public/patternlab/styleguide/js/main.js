@@ -21,7 +21,8 @@ var styleguide = (function(){
   'use strict';
 
   // Private vars
-  var styleGuideFilePath = 'patternlab/styleguide/';
+  var styleGuideFilePath = 'patternlab/styleguide/',
+      patternSources = 'patternlab/sources/_patterns';
 
   /******* PRIVATE METHODS *******/
 
@@ -36,12 +37,12 @@ var styleguide = (function(){
    * Create the menu with json patterns
    */
   var buildMenu = function(patterns){
-    var tree = new Tree();
+    var tree = new Tree(patternSources);
     for(var i in patterns) {
       tree.add(patterns[i]);
     }
 
-    var pathVisitor = new PathVisitor();
+    var pathVisitor = new PathVisitor(patternSources);
     tree.accept(pathVisitor);
     var displayVisitor = new DisplayVisitor();
     tree.accept(displayVisitor);
@@ -61,8 +62,12 @@ var styleguide = (function(){
     });
   };
 
+  /**
+   * View all or a specific pattern
+   * @param {[type]} patterns [description]
+   * @param {[type]} arg      [description]
+   */
   var viewPattern = function(patterns, arg){
-
   }
 
 

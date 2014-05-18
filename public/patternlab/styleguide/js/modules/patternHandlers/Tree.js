@@ -1,6 +1,5 @@
-function Tree() {
-    this.root = new Node("patterns");
-    console.log(this.root);
+function Tree(origin) {
+    this.root = new Node(origin);
     this.root.add(["atoms"]);
     this.root.add(["molecules"]);
     this.root.add(["organisms"]);
