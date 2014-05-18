@@ -5,16 +5,13 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         /** GENERATE JSON PATTERNS LIBRARY **/
-        dir2json: {
+        dir2strings: {
             options: {
-                exclude: '**/*.md',
-                processContent: function(content, srcpath){
-                    return srcpath; // return juste the filename with extension
-                }
+                exclude: '**/*.md'
             },
             data: {
-              root: 'public/sources/_patterns',
-              dest: 'public/sources/patterns.json'
+              root: 'public/patternlab/sources/_patterns',
+              dest: 'public/patternlab/sources/patterns.json'
             },
         },
 
@@ -77,7 +74,7 @@ module.exports = function(grunt) {
 
     });
 
-    grunt.loadNpmTasks('grunt-dir2json');
+    grunt.loadNpmTasks('grunt-dir2strings');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
@@ -85,7 +82,7 @@ module.exports = function(grunt) {
 
 
     grunt.registerTask('build', ['sass']);
-    grunt.registerTask('generateJson', ['dir2json']);
+    grunt.registerTask('generateJson', ['dir2strings']);
     grunt.registerTask('default', ['connect:app', 'open:app', 'watch']);
 
 };
