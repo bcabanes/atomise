@@ -22,40 +22,46 @@ var styleguide = (function(){
 
   // Private vars
   var styleGuideFilePath = 'patternlab/styleguide/',
-      patternSources = 'patternlab/sources/_patterns';
+      patternSources = 'patternlab/sources/_patterns',
+      patternsTree;
 
   /******* PRIVATE METHODS *******/
 
   /**
    * Return the full template path
    */
-  var getTemplate = function(name){
+  var getStyleguideTemplate = function(name){
     return styleGuideFilePath + name + '.mustache';
+  };
+
+  /**
+   * Build the tree from json file
+   * @param {object} patterns JSON patterns file
+   */
+  var buildTree = function(patterns){
+    patternsTree = new Tree(patternSources);
+    for(var i in patterns) {
+      patternsTree.add(patterns[i]);
+    }
+    var pathVisitor = new PathVisitor();
+    patternsTree.accept(pathVisitor);
   };
 
   /**
    * Create the menu with json patterns
    */
-  var buildMenu = function(patterns){
-    var tree = new Tree(patternSources);
-    for(var i in patterns) {
-      tree.add(patterns[i]);
-    }
-
-    var pathVisitor = new PathVisitor(patternSources);
-    tree.accept(pathVisitor);
+  var buildMenu = function(){
     var displayVisitor = new DisplayVisitor();
-    tree.accept(displayVisitor);
+    patternsTree.accept(displayVisitor);
 
     return '<ul>'+displayVisitor.getPath()+'</ul>';
   };
   /**
    * Create the header using the mustache template
-   * @param {object} patterns List of patterns in a tree view
    */
-  var makeHeader = function(patterns){
-    $.get(getTemplate('header'), function(template) {
-      var menu = buildMenu(patterns);
+  var makeHeader = function(){
+    $.get(getStyleguideTemplate('header'), function(template) {
+      var menu = buildMenu();
 
       var rendered = Mustache.render(template, {patterns: menu});
       $('header.sg--header').append(rendered);
@@ -64,28 +70,46 @@ var styleguide = (function(){
 
   /**
    * View all or a specific pattern
-   * @param {[type]} patterns [description]
    * @param {[type]} arg      [description]
    */
-  var viewPattern = function(patterns, arg){
+  var viewPattern = function(arg){
+    if(arg == 'all'){
+      // Load all patterns in right order and by categories
+    }else{
+      // Load the specific pattern
+      arg = arg.replace('#', '');
+      $.get(arg, function(template) {
+        var rendered = Mustache.render(template);
+        $('main.sg--main').html(rendered);
+      });
+    }
+  }
+
+  var loadPattern = function(e){
+    e.preventDefault();
+    viewPattern($(this).attr('href'));
   }
 
 
   /******* PUBLIC METHODS *******/
   return {
     build: function(){
-// console.log("build function fired!");
       $.get('patternlab/sources/patterns.json', function(patterns) {
-// console.log(patterns);
-        makeHeader(patterns);
-        viewPattern(patterns, 'all');
+        // Build the TREE of Patterns from json
+        buildTree(patterns);
+
+        makeHeader();
+        viewPattern('all');
       });
+    },
+    init: function(){},
+    bindUIActions: function(){
+      $(document).on('click', '.sg--primary-menu a', loadPattern);
     }
   }
 })();
 
 (function() {
-
   'use strict';
 
   // Some examples
@@ -94,6 +118,8 @@ var styleguide = (function(){
 
   // Styleguide
   styleguide.build();
+  styleguide.init();
+  styleguide.bindUIActions();
 
 
 })();

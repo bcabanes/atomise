@@ -1,8 +1,7 @@
 PathVisitor.prototype = new Visitor();
 
-function PathVisitor(originPath) {
+function PathVisitor() {
     this.path = [];
-    this.origin = originPath;
 }
 
 PathVisitor.prototype.visitBeforeSons = function(node) {
