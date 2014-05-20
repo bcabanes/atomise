@@ -11,16 +11,7 @@
 /**
  * Global classes, mixins and styles that can be used anywhere and at any time.
  */
-
-
-
-/** Quarks
-========================================================================== */
-/*
- * Styles reserved for default HTML elements only. Default paragraphs, links, lists and micros. Style
- * guide stuff.
- */
-
+@import "utilities/_rem-calc";
 
 /** Atoms
 ========================================================================== */
@@ -28,7 +19,7 @@
  * CSS objects that can be extended from and into other elements of the site. Think of these as
  * the default relationships that can be used again and again without bloating the codebase.
  */
-
+@import "atoms/_inputs";
 
 /** Molecules
 ========================================================================== */
@@ -37,7 +28,7 @@
  * don’t intend to replicate. This is where we can combine multiple quarks and atoms, without
  * interfering with any of our global styles.
  */
-
+@import "molecules/_top-bar";
 
 /** Organisms
 ========================================================================== */
@@ -46,7 +37,7 @@
  * they possibly constitue the main goal of a template. The CSS rules here, has to be organism centric and
  * specific.
  */
-
+@import "organisms/_header";
 
 /** Templates
 ========================================================================== */
@@ -55,7 +46,6 @@
  * to finish the mockup or wireframe of the page. The CSS rules has to be verry light and must be out of
  * anyone organism scope.
  */
-
 
 /** Pages
 ========================================================================== */
