@@ -39,22 +39,24 @@ var styleguide = (function(){
    * @param {object} patterns JSON patterns file
    */
   var buildTree = function(patterns){
-    patternsTree = new Tree(patternSources);
-    for(var i in patterns) {
-      patternsTree.add(patterns[i]);
-    }
-    var pathVisitor = new PathVisitor();
-    patternsTree.accept(pathVisitor);
+    patternsTree = new FileTree();
+    patternsTree.init(".", [
+      'atoms',
+      'molecules',
+      'organisms',
+      'templates',
+      'pages'
+    ]);
+    patternsTree.setTree(patterns);
   };
 
   /**
    * Create the menu with json patterns
    */
   var buildMenu = function(){
-    var displayVisitor = new DisplayVisitor();
-    patternsTree.accept(displayVisitor);
-
-    return '<ul>'+displayVisitor.getPath()+'</ul>';
+    var visitor = new BuildMenuVisitor();
+    patternsTree.acceptVisitor(visitor);
+    $("body").append(visitor.getMenu());
   };
   /**
    * Create the header using the mustache template
@@ -83,12 +85,12 @@ var styleguide = (function(){
         $('main.sg--main').html(rendered);
       });
     }
-  }
+  };
 
   var loadPattern = function(e){
     e.preventDefault();
     viewPattern($(this).attr('href'));
-  }
+  };
 
 
   /******* PUBLIC METHODS *******/
@@ -106,7 +108,7 @@ var styleguide = (function(){
     bindUIActions: function(){
       $(document).on('click', '.sg--primary-menu a', loadPattern);
     }
-  }
+  };
 })();
 
 (function() {
