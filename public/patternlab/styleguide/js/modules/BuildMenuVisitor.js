@@ -32,5 +32,5 @@ BuildMenuVisitor.prototype.visitAfterSons = function(node) {
 };
 
 BuildMenuVisitor.prototype.getMenu = function() {
-  return '<ul class="left">'+this.menu+'</ul>';
+  return '<ul class="sg--nav">'+this.menu+'</ul>';
 };

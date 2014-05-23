@@ -1,0 +1,19 @@
+/* ==========================================================================
+   Navigation toggle (small devices)
+   ========================================================================== */
+
+.sg--header .sg-nav-toggle{
+  padding        : 0.9em $sg-pad;
+  border-bottom  : 1px solid rgba(0,0,0,0);
+  display        : inline-block;
+  position       : relative;
+  text-transform : uppercase;
+  z-index        : 2;
+
+  span{
+    padding-right : 0.2em;
+    display       : inline-block;
+  }
+
+  @media all and (min-width: $sg-bp-med){ display: none; }
+}

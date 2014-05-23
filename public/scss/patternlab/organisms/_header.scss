@@ -2,9 +2,55 @@
    Header
    ========================================================================== */
 
-/**
- * Header
- */
 .sg--header{
-  background: #313131;
+  background     : $sg-primary;
+  color          : $sg-quaternary;
+  font-family    : $sg-font;
+  left           : 0;
+  position       : fixed;
+  text-transform : uppercase;
+  top            : 0;
+  width          : 100%;
+  z-index        : 2;
+
+
+  /**
+   * Header's general children style
+   */
+  *{
+    -moz-box-sizing    : border-box;
+    -webkit-box-sizing : border-box;
+    box-sizing         : border-box;
+  }
+
+  ul, ol{
+    margin  : 0;
+    padding : 0;
+  }
+    li{
+      border-bottom : 1px solid $sg-tint;
+      list-style    : none;
+    }
+  a{
+    padding         : $sg-pad;
+    color           : $sg-secondary;
+    display         : block;
+    font-size       : $sg-font-size-sm;
+    line-height     : 1;
+    text-decoration : none;
+    @include sg-transition(background,0.15s,ease-out);
+		@include sg-transition(color,0.15s,ease-out);
+
+    /* General link states */
+    &:hover, &:focus, &.active {
+			color      : $sg-quaternary;
+			background : $sg-tint;
+		}
+
+    ol ol ol a,
+    ul ul ul a { //3rd level nav item
+		  padding-left   : 2em;
+		  text-transform : none;
+    }
+  }
 }

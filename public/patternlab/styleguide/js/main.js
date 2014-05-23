@@ -56,7 +56,7 @@ var styleguide = (function(){
   var buildMenu = function(){
     var visitor = new BuildMenuVisitor();
     patternsTree.acceptVisitor(visitor);
-    $("body").append(visitor.getMenu());
+    return visitor.getMenu();
   };
   /**
    * Create the header using the mustache template

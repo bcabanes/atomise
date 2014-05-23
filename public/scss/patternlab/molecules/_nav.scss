@@ -1,0 +1,44 @@
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+/**
+ * Navigation container
+ */
+.sg--nav-container{
+  @media all and (max-width: $sg-bp-med){
+    max-height : 0;
+    overflow   : hidden;
+    @include sg-transition(max-height,0.1s,ease-out);
+
+    &.active { max-height: 50em; }
+  }
+}
+
+/**
+ * Navigation
+ */
+.sg--nav{
+  margin     : 0;
+  padding    : 0;
+  list-style : none;
+  z-index    : 1;
+
+  & > li{ // 1rst level (atoms/molecules/organisms/...)
+    cursor: pointer;
+
+    @media all and (min-width: $sg-bp-med){
+      border-bottom : 0;
+      border-right  : 1px solid $sg-tint;
+      float         : left;
+      position      : relative;
+
+      & > ol,
+      & > ul{ // 2nd level (global/text/...)
+        left     : 0;
+        position : absolute;
+        top      : $offset-top;
+      }
+    }
+  }
+}

@@ -9,10 +9,12 @@
     // Accordion dropdown
     $('.sg--acc-handle').on("click", function(e){
       e.preventDefault();
-  console.log('test');
       var $this = $(this),
         $panel = $this.next('.sg--acc-panel'),
-        subnav = $this.parent().parent().hasClass('sg-acc-panel');
+        subnav = $this.parent().parent().hasClass('sg--acc-panel');
+
+console.log($panel);
+console.log(subnav);
 
       //Close other panels if link isn't a subnavigation item
       if (!subnav) {

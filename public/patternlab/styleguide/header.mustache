@@ -1,143 +1,59 @@
-<nav class="sg--top-bar">
-  {{{#patterns}}}
-  <ul class="sg--title-area">
-    <li class="sg--name">
-      <h1><a href="./">PatternLab</a></h1>
-    </li>
-  </ul>
-  <section class="sg--top-bar-section">
-    <!-- Right site menu -->
-    <ul class="right">
-      <li class="sg--size-control--container">
-        <form class="sg--size-control">
-          Size <input type="text" value="----" class="sg--input-size-px"> px / <input type="text" value="----" class="sg--input-size-px">em
-        </form>
-      </li>
-      <li><a href="#" class="sg--size-small">S</a></li>
-      <li><a href="#" class="sg--size-medium">M</a></li>
-      <li><a href="#" class="sg--size-large">L</a></li>
-      <li><a href="#" class="sg--size-full">FULL</a></li>
-      <li><a href="#" class="sg--size-random">RANDOM</a></li>
-      <li><a href="#" class="sg--size-disco">DISCO</a></li>
-      <li class="sg--has-dropdown">
-        <a href="#">MQ</a>
-        <ul class="sg--dropdown">
-          <li><a href="#">mediaquery1</a></li>
-          <li><a href="#">mediaquery2</a></li>
-          <li><a href="#">mediaquery3</a></li>
-          <li><a href="#">mediaquery4</a></li>
-        </ul>
-      </li>
-      <li><a href="#" class="sg--see-code">CODE</a></li>
-      <li class="sg--has-dropdown">
-        <a href="#" class="sg--setting">Settings</a>
-        <ul class="sg--dropdown">
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-        </ul>
-      </li>
-    </ul>
+<!-- navigation toggle -->
+<a href="#sg-nav-container" class="sg-nav-toggle"><span class="icon-menu"></span>Menu</a>
+<!-- end of navigation toggle -->
 
-    <!-- Left site menu -->
-    <ul class="left">
-      <li class="sg--nav-atoms">
-        <a class="sg--acc-handle" href="#">ATOMS</a>
-        <ul class="sg--acc-panel">
-          <li class="sg--nav-global">
-            <a class="sg--acc-handle" href="#">GLOBAL</a>
-            <ul class="sg--acc-panel sg--sub-nav">
-              <li><a href="#">Animations</a></li>
-              <li><a href="#">Colors</a></li>
-              <li><a href="#">Fonts</a></li>
-              <li><a href="#">View all</a></li>
-            </ul>
-          </li>
-          <li class="sg--nav-text">
-            <a href="sg--acc-handle">TEXT</a>
-            <ul class="sg--acc-panel sg--sub-nav">
-              <li><a href="#">Blockquote</a></li>
-              <li><a href="#">Headings</a></li>
-              <li><a href="#">Hrs</a></li>
-              <li><a href="#">Inline elements</a></li>
-              <li><a href="#">Paragraph</a></li>
-              <li><a href="#">Time</a></li>
-              <li><a href="#">View all</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li class="sg--nav-molecules">
-        <a class="sg--acc-handle" href="#">MOLECULES</a>
-        <ul class="sg--acc-panel">
-          <li class="sg--nav-blocks">
-            <a class="sg--acc-handle" href="#">BLOCKS</a>
-            <ul class="sg--acc-panel sg--sub-nav">
-              <li><a href="#">item1</a></li>
-              <li><a href="#">item2</a></li>
-              <li><a href="#">item3</a></li>
-              <li><a href="#">item4</a></li>
-              <li><a href="#">View all</a></li>
-            </ul>
-          </li>
-          <li class="sg--nav-text">
-            <a href="#">TEXT</a>
-            <ul class="sg--acc-panel sg--sub-nav">
-              <li><a href="#">item1</a></li>
-              <li><a href="#">item2</a></li>
-              <li><a href="#">item3</a></li>
-              <li><a href="#">item4</a></li>
-              <li><a href="#">View all</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li class="sg--nav-organisms">
-        <a class="sg--acc-handle" href="#">ORGANISMS</a>
-        <ul class="sg--acc-panel">
-          <li class="sg--nav-blocks">
-            <a class="sg--acc-handle" href="#">BLOCKS</a>
-            <ul class="sg--acc-panel sg--sub-nav">
-              <li><a href="#">item1</a></li>
-              <li><a href="#">item2</a></li>
-              <li><a href="#">item3</a></li>
-              <li><a href="#">item4</a></li>
-              <li><a href="#">View all</a></li>
-            </ul>
-          </li>
-          <li class="sg--nav-text">
-            <a href="#">TEXT</a>
-            <ul class="sg--acc-panel sg--sub-nav">
-              <li><a href="#">item1</a></li>
-              <li><a href="#">item2</a></li>
-              <li><a href="#">item3</a></li>
-              <li><a href="#">item4</a></li>
-              <li><a href="#">View all</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li class="sg--nav-templates">
-        <a class="sg--acc-handle" href="#">TEMPLATES</a>
-        <ul class="sg--acc-panel">
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Homepage</a></li>
-        </ul>
-      </li>
-      <li class="sg--nav-pages">
-        <a class="sg--acc-handle" href="#">PAGES</a>
-        <ul class="sg--acc-panel">
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Homepage</a></li>
-        </ul>
-      </li>
-      <li><a href="#">ALL</a></li>
-      <li>
-        <form class="sg--pattern-search">
-          <input type="search" placeholder="Your pattern" class="sg--input-search">
-        </form>
-      </li>
-    </ul>
-  </section>
+<!-- pattern navigation & controls -->
+<nav class="sg--nav-container">
+  <!-- pattern menu -->
+  {{{patterns}}}
+  <!-- end of pattern menu -->
+
+  <!-- controls -->
+  <div class="sg--controls">
+    <div class="sg--control-content">
+      <ul class="sg--control">
+        <li class="sg--size">
+          <div class="sg--current-size"><!-- current size form -->
+            <form id="sg--form">
+              Size <input type="number" class="sg--input sg--siz-px" value="---">px /
+              <input type="number" class="sg--input sg--siz-px" value="---">em
+            </form>
+          </div><!-- end of current size form -->
+          <ul class="sg--acc-panel sg--size-options">
+            <li><a href="#" id="sg--size-s">S</a></li>
+						<li><a href="#" id="sg--size-m">M</a></li>
+						<li><a href="#" id="sg--size-l">L</a></li>
+						<li><a href="#" id="sg--size-full">Full</a></li>
+						<li><a href="#" id="sg--size-random">Random</a></li>
+						<li><a href="#" class="mode-link" id="sg--size-disco">Disco</a></li>
+          </ul>
+        </li>
+        <li class="sg--mqs">
+          <a href="#" class="mode-link sg--acc-handle" id="sg--size-mq" title="Media queries in stylesheet">MQ</a>
+					<ul class="sg--acc-panel sg--left" id="sg--mq">
+							<li><a href="#">10em</a></li>
+							<li><a href="#">17em</a></li>
+							<li><a href="#">24em</a></li>
+							<li><a href="#">29.75em</a></li>
+							<li><a href="#">39.8em</a></li>
+							<li><a href="#">46.8em</a></li>
+							<li><a href="#">48em</a></li>
+							<li><a href="#">50em</a></li>
+							<li><a href="#">72em</a></li>
+					</ul>
+        </li>
+        <li class="sg--find">
+					<a href="#" class="sg--acc-handle sg--control-trigger sg--icon sg--icon-search" id="sg--f-toggle" title="Search Patterns">
+            <!-- <span class="is-vishidden">Search Patterns</span> -->
+            Search Patterns
+          </a>
+					<ul class="sg--view sg--acc-panel sg--right sg--checklist" id="sg--find" style="margin-top: 33px; height: 357px;">
+							<li>twitter type head plugin</li>
+					</ul>
+				</li>
+      </ul>
+    </div>
+  </div>
+  <!-- end of controls -->
 </nav>
+<!-- end of pattern navigation & controls -->
