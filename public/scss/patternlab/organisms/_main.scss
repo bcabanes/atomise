@@ -1,0 +1,59 @@
+/* ==========================================================================
+   Main
+   ========================================================================== */
+
+.sg--main{
+  bottom   : 0;
+  left     : 0;
+  position : fixed;
+  right    : 0;
+  top      : $offset-top;
+  width    : 100%;
+  z-index  : 0;
+
+  &.animate{
+    -webkit-transition : left 0.3s ease-out;
+    -moz-transition    : left 0.3s ease-out;
+    -ms-transition     : left 0.3s ease-out;
+    -o-transition      : left 0.3s ease-out;
+    transition         : left 0.3s ease-out;
+  }
+}
+
+  .sg--gen-container{
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+	  overflow-y: auto;
+	  overflow-x: hidden;
+    
+      &.hay-mode{
+        -webkit-transition: all 40s linear;
+        -moz-transition: all 40s linear;
+        -ms-transition: all 40s linear;
+        -o-transition: all 40s linear;
+        transition: all 40s linear;
+      }
+  }
+
+    .sg--viewport{
+      margin: 0;
+      padding: 0;
+      background: white;
+      border: 0;
+      bottom: 0;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+        &.hay-mode{
+      		-webkit-transition: all 40s linear;
+    	    -moz-transition: all 40s linear;
+    	    -ms-transition: all 40s linear;
+    	    -o-transition: all 40s linear;
+    	    transition: all 40s linear;
+        }
+    }
