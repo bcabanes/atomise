@@ -13,6 +13,7 @@
    */
   var fireUIfunctions = function(){
     patternlab.ui.accordionDropdown.bindUIactions();
+    patternlab.ui.navigationToggle.bindUIactions();
   };
 
   /**
