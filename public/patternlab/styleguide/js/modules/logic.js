@@ -9,8 +9,14 @@
       patternsTree;
 
   /*** PRIVATE METHODES ***/
-  var setPatternsJson = function(data){
-    patternsJson = data;
+  /**
+   * Get the json file and makes it an object
+   */
+  var setPatternsJson = function(){
+    $.get(patternlab.settings.patternsJsonPath, function(data){
+      patternsJson = data;
+      patternlab.event.send('logic:json:handled');
+    });
   };
 
   /**

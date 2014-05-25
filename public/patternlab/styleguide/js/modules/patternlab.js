@@ -22,13 +22,13 @@ console.log(this);
        * 3- Bind interactions (this.ui)
        */
 
-      // TEMPORARY NEED TO BE REFACTORED
-      var self = this;
-      $.get(settings.patternsJsonPath, function(data) {
-        self.logic.setPatternsJson(data);
-        self.styleguide.makeHeader();
-        self.ui.init();
-      });
+      /*
+        REGISTER EVENTS
+       */
+      this.event.register('logic:json:handled', this.styleguide.makeHeader);
+      this.event.register('styleguide:build:ended', this.ui.init);
+
+      this.logic.setPatternsJson();
 
     },
     getVersion: function(){

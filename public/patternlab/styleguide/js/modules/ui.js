@@ -17,10 +17,10 @@
   };
 
   /**
-   * Listen to the event whose say it begings
+   * Initialization of the module
    */
   var init = function(){
-    $(document).on('header:built', fireUIfunctions);
+    fireUIfunctions();
   };
 
   /*** PUBLIC METHODES ***/

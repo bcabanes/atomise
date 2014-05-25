@@ -6,10 +6,33 @@
 
   /*** PRIVATE VARIABLES ***/
   var el = {
-    header: 'header.sg--header'
-  };
+        header: 'header.sg--header'
+      },
+      built = [];
 
   /*** PRIVATE METHODES ***/
+  /**
+   * Count each element of the el var
+   */
+  var countEl = function(){
+    var i = 0;
+    for(var single in el){
+      i++;
+    }
+    return i;
+  };
+
+  /**
+   * Test if there is more part to render
+   * @param {string} el The element's name that juste been redered
+   */
+  var updateStyleGuideSate = function(rendered){
+    built.push(rendered);
+    if(built.length == countEl()){ // The styleguide is completly built
+      patternlab.event.send('styleguide:build:ended');
+    }
+  };
+
   /**
    * Build the navigation menu
    */
@@ -30,8 +53,9 @@
       var rendered = Mustache.render(template, {patterns: navigation});
       $(el.header).append(rendered);
 
-      // TEMPORARY send an event
-      $(document).trigger('header:built');
+      // Update styleguide sate to say the header is rendered
+      updateStyleGuideSate('header');
+
     });
   };
 
