@@ -16,9 +16,12 @@
   };
 
   /**
-   * Clean eventsLog (delete all events)
+   * Clean eventsLog & unbind them (delete all registred events)
    */
-  var clearEventsLog = function(){
+  var clearEvents = function(){
+    for(var ev in eventsLog){
+      $(document).unbind(eventsLog[ev].name);
+    }
     eventsLog = {};
   };
 
@@ -46,7 +49,7 @@
 
   /*** PUBLIC METHODES ***/
   patternlab.event = {
-    clear: clearEventsLog,
+    clear: clearEvents,
     register: registerEvent,
     getEventsLog: getEventsLog,
     send: sendEvent
