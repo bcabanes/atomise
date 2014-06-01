@@ -36,8 +36,8 @@
 
     &:active,
     &:focus{
-      background : $sg-quinary;
-      color      : #000000;
+      background : $sg-quaternary;
+      color      : $sg-primary;
       outline    : 0;
     }
   }

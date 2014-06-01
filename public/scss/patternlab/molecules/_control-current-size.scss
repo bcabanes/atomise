@@ -9,8 +9,8 @@
 
   &:hover{
     .sg--input{
-      background : $sg-quinary;
-      color      : #000000;
+      background : $sg-secondary;
+      color      : $sg-primary;
     }
   }
 
@@ -38,13 +38,6 @@
   }
 }
 
-// Media Queries Dropdown
-#sg--size-mq {
-	display: none;
-
-	@media all and (min-width: $sg-bp-large) { display: block; }
-}
-
 #sg--form {
 	margin  : 0;
 	padding : 0;
@@ -55,8 +48,8 @@
 	margin           : -2px 0 0 0;
 	padding          : 0;
 	border           : 0;
-	background-color : #222;
-	color            : gray;
+	background-color : $sg-tertiary;
+	color            : $sg-secondary;
 	text-align       : right;
   width            : 25px;
 

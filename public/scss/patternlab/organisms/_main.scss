@@ -3,13 +3,14 @@
    ========================================================================== */
 
 .sg--main{
-  bottom   : 0;
-  left     : 0;
-  position : fixed;
-  right    : 0;
-  top      : $offset-top;
-  width    : 100%;
-  z-index  : 0;
+  background : $sg-tertiary;
+  bottom     : 0;
+  left       : 0;
+  position   : fixed;
+  right      : 0;
+  top        : $offset-top;
+  width      : 100%;
+  z-index    : 0;
 
   &.animate{
     -webkit-transition : left 0.3s ease-out;
@@ -40,8 +41,8 @@
     .sg--viewport{
       margin: 0;
       padding: 0;
-      background: white;
-      border: 0;
+      background: #FFFFFF;
+      border: 1px solid $sg-quinary;
       bottom: 0;
       height: 100%;
       left: 0;
