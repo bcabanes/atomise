@@ -74,10 +74,10 @@
       e.preventDefault();
     }
     if(patternlabUI.discoMode){
-      patternlabUI.discoMode.end();
+      patternlabUI.discoMode.stop();
     }
     if(patternlabUI.hayMode){
-      patternlabUI.hayMode.end();
+      patternlabUI.hayMode.stop();
     }
 
     resizeViewport(randomize(minViewportWidth, 500));
@@ -92,10 +92,10 @@
       e.preventDefault();
     }
     if(patternlabUI.discoMode){
-      patternlabUI.discoMode.end();
+      patternlabUI.discoMode.stop();
     }
     if(patternlabUI.hayMode){
-      patternlabUI.discoMode.end();
+      patternlabUI.hayMode.stop();
     }
 
     resizeViewport(randomize(500, 800));
@@ -110,10 +110,10 @@
       e.preventDefault();
     }
     if(patternlabUI.discoMode){
-      patternlabUI.discoMode.end();
+      patternlabUI.discoMode.stop();
     }
     if(patternlabUI.hayMode){
-      patternlabUI.discoMode.end();
+      patternlabUI.hayMode.stop();
     }
 
     resizeViewport(randomize(800, 1200));
@@ -128,10 +128,10 @@
       e.preventDefault();
     }
     if(patternlabUI.discoMode){
-      patternlabUI.discoMode.end();
+      patternlabUI.discoMode.stop();
     }
     if(patternlabUI.hayMode){
-      patternlabUI.discoMode.end();
+      patternlabUI.hayMode.stop();
     }
 
     resizeViewport(clientWidth);
@@ -146,10 +146,10 @@
       e.preventDefault();
     }
     if(patternlabUI.discoMode){
-      patternlabUI.discoMode.end();
+      patternlabUI.discoMode.stop();
     }
     if(patternlabUI.hayMode){
-      patternlabUI.discoMode.end();
+      patternlabUI.hayMode.stop();
     }
 
     resizeViewport(randomize(minViewportWidth, clientWidth));
@@ -353,7 +353,8 @@
   patternlabUI.resize = {
     init: init,
     bindUIactions: bindUIactions,
-    resize: resizeViewport
+    resize: resizeViewport,
+    updateSizeReading: updateSizeReading
   };
 
 }(PatternLab.ui));

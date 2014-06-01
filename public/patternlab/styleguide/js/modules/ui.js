@@ -16,6 +16,8 @@
     patternlab.ui.navigationToggle.bindUIactions();
     patternlab.ui.resize.init();
     patternlab.ui.resize.bindUIactions();
+    patternlab.ui.discoMode.bindUIactions();
+    patternlab.ui.hayMode.bindUIactions();
   };
 
   /**
