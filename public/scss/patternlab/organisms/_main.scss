@@ -27,7 +27,7 @@
     -webkit-overflow-scrolling: touch;
 	  overflow-y: auto;
 	  overflow-x: hidden;
-    
+
       &.hay-mode{
         -webkit-transition: all 40s linear;
         -moz-transition: all 40s linear;
@@ -45,6 +45,7 @@
       bottom: 0;
       height: 100%;
       left: 0;
+      overflow: auto;
       position: absolute;
       right: 0;
       top: 0;
@@ -57,3 +58,11 @@
     	    transition: all 40s linear;
         }
     }
+
+.sg--viewport-animate{
+  -webkit-transition: width 0.8s ease-out;
+  -moz-transition: width 0.8s ease-out;
+  -ms-transition: width 0.8s ease-out;
+  -o-transition: width 0.8s ease-out;
+  transition: width 0.8s ease-out;
+}
