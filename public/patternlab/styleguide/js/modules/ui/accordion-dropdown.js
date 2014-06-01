@@ -9,6 +9,11 @@
       headerHeight = $('.sg--header').height();
 
   /*** PRIVATE METHODES ***/
+
+  var closePanels = function(){
+    $('.sg--nav-container, .sg--nav-toggle, .sg--acc-handle, .sg--acc-panel').removeClass('active');
+  };
+
   /**
    * Set the new document's height and
    * adjust the accordion's height
@@ -58,6 +63,7 @@
   var bindUIactions = function(){
     $(document).on('click', '.sg--acc-handle', toggleDropdown);
     $(window).resize(handleResize);
+    $(document).on('click', '.sg--main', closePanels)
   };
 
   /*** PUBLIC METHODES ***/

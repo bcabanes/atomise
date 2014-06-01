@@ -14,6 +14,8 @@
   var fireUIfunctions = function(){
     patternlab.ui.accordionDropdown.bindUIactions();
     patternlab.ui.navigationToggle.bindUIactions();
+    patternlab.ui.resize.init();
+    patternlab.ui.resize.bindUIactions();
   };
 
   /**

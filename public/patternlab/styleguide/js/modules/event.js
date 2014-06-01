@@ -22,7 +22,7 @@
     for(var ev in eventsLog){
       $(document).unbind(eventsLog[ev].name);
     }
-    eventsLog = {};
+    eventsLog = [];
   };
 
   /**
