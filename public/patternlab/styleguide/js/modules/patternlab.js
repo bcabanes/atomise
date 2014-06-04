@@ -23,10 +23,9 @@ console.log(this);
        */
 
       /*
-        REGISTER EVENTS
+        Start the event manager (registering all events)
        */
-      this.event.register('logic:json:handled', this.styleguide.makeHeader);
-      this.event.register('styleguide:build:ended', this.ui.init);
+      this.event.manager.init();
 
       this.logic.setPatternsJson();
 

@@ -21,6 +21,7 @@
    */
   var startHayMode = function(){
     enabled = true;
+    PatternLab.event.send('ui:hayMode:started');
     $('.sg--gen-container').removeClass('sg--viewport-animate').width(minViewportWidth+viewportResizeHandleWidth);
     $sgViewport.removeClass('sg--viewport-animate').width(minViewportWidth);
 
@@ -44,6 +45,7 @@
 		$sgViewport.removeClass('hay-mode');
 		$('.sg--gen-container').removeClass('hay-mode');
 		patternlabUI.resize.resize(Math.floor(currentWidth));
+    PatternLab.event.send('ui:hayMode:stopped');
   };
 
   /**
@@ -52,9 +54,7 @@
    */
   var handleClick = function(e){
     e.preventDefault();
-    if(patternlabUI.discoMode){
-      patternlabUI.discoMode.stop();
-    }
+
     if(enabled){
       stopHayMode();
     }else{

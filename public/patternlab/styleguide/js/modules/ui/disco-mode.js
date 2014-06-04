@@ -36,6 +36,7 @@
    */
   var startDiscoMode = function(){
     enabled = true;
+    PatternLab.event.send('ui:discoMode:started');
     discoID = setInterval(process, interval);
   };
 
@@ -46,6 +47,7 @@
     enabled = false;
     clearInterval(discoID);
     discoID = false;
+    PatternLab.event.send('ui:discoMode:stopped');
   };
 
   /**

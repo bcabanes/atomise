@@ -73,12 +73,8 @@
     if(e !== undefined){
       e.preventDefault();
     }
-    if(patternlabUI.discoMode){
-      patternlabUI.discoMode.stop();
-    }
-    if(patternlabUI.hayMode){
-      patternlabUI.hayMode.stop();
-    }
+
+    PatternLab.event.send('ui:setSmall');
 
     resizeViewport(randomize(minViewportWidth, 500));
   };
@@ -91,12 +87,8 @@
     if(e !== undefined){
       e.preventDefault();
     }
-    if(patternlabUI.discoMode){
-      patternlabUI.discoMode.stop();
-    }
-    if(patternlabUI.hayMode){
-      patternlabUI.hayMode.stop();
-    }
+
+    PatternLab.event.send('ui:setMedium');
 
     resizeViewport(randomize(500, 800));
   };
@@ -109,12 +101,8 @@
     if(e !== undefined){
       e.preventDefault();
     }
-    if(patternlabUI.discoMode){
-      patternlabUI.discoMode.stop();
-    }
-    if(patternlabUI.hayMode){
-      patternlabUI.hayMode.stop();
-    }
+
+    PatternLab.event.send('ui:setLarge');
 
     resizeViewport(randomize(800, 1200));
   };
@@ -127,12 +115,8 @@
     if(e !== undefined){
       e.preventDefault();
     }
-    if(patternlabUI.discoMode){
-      patternlabUI.discoMode.stop();
-    }
-    if(patternlabUI.hayMode){
-      patternlabUI.hayMode.stop();
-    }
+
+    PatternLab.event.send('ui:setFull');
 
     resizeViewport(clientWidth);
   };
@@ -145,12 +129,8 @@
     if(e !== undefined){
       e.preventDefault();
     }
-    if(patternlabUI.discoMode){
-      patternlabUI.discoMode.stop();
-    }
-    if(patternlabUI.hayMode){
-      patternlabUI.hayMode.stop();
-    }
+
+    PatternLab.event.send('ui:setRandom');
 
     resizeViewport(randomize(minViewportWidth, clientWidth));
   };
