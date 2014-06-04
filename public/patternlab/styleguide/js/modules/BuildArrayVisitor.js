@@ -2,14 +2,17 @@ BuildArrayVisitor.prototype = new Visitor();
 
 function BuildArrayVisitor() {
   this.patterns = [];
-  this.path = '';
+  this.path = [];
 }
 
 BuildArrayVisitor.prototype.begin = function(node) {
-  if(node.isLeaf()) {
-    this.patterns[node.getName()] = this.path + node.getName();
-  }else{
-    this.path += node.getName() + '/';
+  if(node.isLeaf()){
+    var path = "";
+    if (this.path.length) {
+      path += this.path.join("/") + "/";
+    }
+    path += node.getValue();
+    this.patterns[node.getName()] = path;
   }
 };
 
@@ -17,12 +20,11 @@ BuildArrayVisitor.prototype.end = function(node) {
 };
 
 BuildArrayVisitor.prototype.visitBeforeSons = function(node) {
+  this.path.push(node.getValue());
 };
 
 BuildArrayVisitor.prototype.visitAfterSons = function(node) {
-  this.path = this.path.split('/');
-  this.path = this.path.slice(1, this.path.length - 1);
-  this.path = this.path.join('/');
+  this.path.pop();
 };
 
 BuildArrayVisitor.prototype.getPatterns = function() {
