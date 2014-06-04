@@ -48,6 +48,16 @@
   };
 
   /**
+   * Get all patterns
+   */
+  var getAllPatterns = function(){
+    var visitor = new BuildArrayVisitor();
+    patternsTree = getPatternsTree();
+    patternsTree.acceptVisitor(visitor);
+    return visitor.getPatterns();
+  };
+
+  /**
    * Return the styleguide template
    * @param {string} name Name of mustache template
    */
@@ -59,6 +69,7 @@
   patternlab.logic = {
     setPatternsJson: setPatternsJson,
     getPatternsTree: getPatternsTree,
+    getAllPatterns: getAllPatterns,
     getStyleguideTemplate: getStyleguideTemplate
   };
 

@@ -1,5 +1,5 @@
 /**
- * Event module
+ * Event Manager module
  */
 (function(patternlabEvent){
   'use strict';
@@ -16,7 +16,11 @@
     /*
       REGISTERING EVENTS
      */
-    PatternLab.event.register('logic:json:handled', PatternLab.styleguide.makeHeader);
+    // PatternLab.event.register('logic:json:handled', PatternLab.styleguide.makeHeader);
+    PatternLab.event.register('logic:json:handled', function(){
+      PatternLab.styleguide.makeHeader();
+      console.log(PatternLab.logic.getAllPatterns());
+    });
     PatternLab.event.register('styleguide:build:ended', PatternLab.ui.init);
 
     /**

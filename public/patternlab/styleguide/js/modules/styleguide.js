@@ -26,7 +26,7 @@
    * Test if there is more part to render
    * @param {string} el The element's name that juste been redered
    */
-  var updateStyleGuideSate = function(rendered){
+  var updateStyleGuideState = function(rendered){
     built.push(rendered);
     if(built.length == countEl()){ // The styleguide is completly built
       patternlab.event.send('styleguide:build:ended');
@@ -54,9 +54,17 @@
       $(el.header).append(rendered);
 
       // Update styleguide sate to say the header is rendered
-      updateStyleGuideSate('header');
+      updateStyleGuideState('header');
 
     });
+  };
+
+  var makeContent = function(pattern){
+    if(pattern !== undefined){
+
+    }else{
+      // Load all patterns
+    }
   };
 
   /*** PUBLIC METHODES ***/
