@@ -58,6 +58,44 @@
   };
 
   /**
+   * Sort patterns given in different categories
+   * @param {object} patterns All patterns
+   */
+  var sortPatterns = function(patterns){
+
+    var sortedPatterns = {
+      'atoms': [],
+      'molecules': [],
+      'organisms': [],
+      'templates': [],
+      'pages': []
+    };
+    for(var pattern in patterns){
+      var prefix = patterns[pattern].split('/')[0];
+      var obj = {};
+      obj[pattern] = patterns[pattern];
+      if(prefix == 'atoms'){
+        sortedPatterns.atoms.push(obj);
+        obj = null;
+      }else if(prefix == 'molecules'){
+        sortedPatterns.molecules.push(obj);
+        obj = null;
+      }else if(prefix == 'organisms'){
+        sortedPatterns.organisms.push(obj);
+        obj = null;
+      }else if(prefix == 'templates'){
+        sortedPatterns.templates.push(obj);
+        obj = null;
+      }else if(prefix == 'pages'){
+        sortedPatterns.pages.push(obj);
+        obj = null;
+      }
+    }
+
+    return sortedPatterns;
+  };
+
+  /**
    * Return the styleguide template
    * @param {string} name Name of mustache template
    */
@@ -65,12 +103,22 @@
     return patternlab.settings.styleGuideFilePath + name + '.mustache';
   };
 
+  /**
+   * Return the pattern template path
+   * @param {string} name Name of mustache template
+   */
+  var getPatternTemplate = function(name){
+    return patternlab.settings.patternsFilePath + name;
+  };
+
   /*** PUBLIC METHODES ***/
   patternlab.logic = {
     setPatternsJson: setPatternsJson,
     getPatternsTree: getPatternsTree,
     getAllPatterns: getAllPatterns,
-    getStyleguideTemplate: getStyleguideTemplate
+    getStyleguideTemplate: getStyleguideTemplate,
+    getPatternTemplate: getPatternTemplate,
+    sortPatterns: sortPatterns
   };
 
 }(PatternLab));

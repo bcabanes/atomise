@@ -7,6 +7,7 @@ var PatternLab = (function() {
   var settings = {
     patternsJsonPath: 'patternlab/sources/patterns.json',
     patternsJson: '',
+    patternsFilePath: 'patternlab/sources/_patterns/',
     styleGuideFilePath: 'patternlab/styleguide/',
     version: '0.0.1'
   };

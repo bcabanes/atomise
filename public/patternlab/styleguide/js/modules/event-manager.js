@@ -19,7 +19,7 @@
     // PatternLab.event.register('logic:json:handled', PatternLab.styleguide.makeHeader);
     PatternLab.event.register('logic:json:handled', function(){
       PatternLab.styleguide.makeHeader();
-      console.log(PatternLab.logic.getAllPatterns());
+      PatternLab.styleguide.makeContent();
     });
     PatternLab.event.register('styleguide:build:ended', PatternLab.ui.init);
 
