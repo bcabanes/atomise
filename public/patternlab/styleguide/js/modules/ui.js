@@ -18,6 +18,7 @@
     patternlab.ui.resize.bindUIactions();
     patternlab.ui.discoMode.bindUIactions();
     patternlab.ui.hayMode.bindUIactions();
+    patternlab.ui.loadPattern.bindUIactions();
   };
 
   /**

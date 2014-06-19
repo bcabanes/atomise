@@ -59,20 +59,21 @@
     });
   };
 
-  //////////////////////////////////////////// NEED TO BE REBUILT
+
   var makeContent = function(pattern){
+    var patterns = {};
+    $('.sg--viewport').html('');
+
     if(pattern !== undefined){
-      // aNodes = patternsTree.find([{name: "path", value: pattern}]);
-      // oNode = aNodes[0];
-      // if (oNode.type === 'directory')
-      //   Load all patterns
-      // else
-      //   Load the pattern
+      var patternsTree = patternlab.logic.getPatternsTree();
+      patterns = patternsTree.find([{name: "path", value: pattern}]);
     }else{
       // Load all patterns
-      var patterns = patternlab.logic.getAllPatterns();
-      patterns = patternlab.logic.sortPatterns(patterns);
-      for(var type in patterns){
+      patterns = patternlab.logic.getAllPatterns();
+    }
+    patterns = patternlab.logic.sortPatterns(patterns);
+    for(var type in patterns){
+      if(patterns[type].length !== 0){
         createEncart(type, patterns);
       }
     }
@@ -86,16 +87,14 @@
     }
   };
 
-  var loadPattern = function(name, type, path){
+  var loadPattern = function(name, category, path){
 
     $.get(patternlab.logic.getPatternTemplate(path), function(template) {
       var rendered = Mustache.render(template);
-      $('.sg--viewport').find('.sg--'+type+'-content').append('<h2>'+name+'</h2>'+rendered);
+      $('.sg--viewport').find('.sg--'+category+'-content').append('<h2>'+name+'</h2>'+rendered);
     });
 
   };
-
-  //////////////////////////////////////////// END OF NEED TO BE REBUILT
 
   /*** PUBLIC METHODES ***/
   patternlab.styleguide = {
