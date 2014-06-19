@@ -62,12 +62,16 @@
   //////////////////////////////////////////// NEED TO BE REBUILT
   var makeContent = function(pattern){
     if(pattern !== undefined){
-
+      // aNodes = patternsTree.find([{name: "path", value: pattern}]);
+      // oNode = aNodes[0];
+      // if (oNode.type === 'directory')
+      //   Load all patterns
+      // else
+      //   Load the pattern
     }else{
       // Load all patterns
       var patterns = patternlab.logic.getAllPatterns();
       patterns = patternlab.logic.sortPatterns(patterns);
-
       for(var type in patterns){
         createEncart(type, patterns);
       }
@@ -76,10 +80,9 @@
 
   var createEncart = function(type, patterns){
     $('.sg--viewport').append('<div class="sg--'+type+'-content">'+'<h1>'+type+'</h1>'+'</div>');
-    for(var pattern in patterns[type]){
-      var path = patterns[type][pattern][Object.keys(patterns[type][pattern])];
-      loadPattern(Object.keys(patterns[type][pattern])[0], type,  path);
-      path = null;
+    for(var i in patterns[type]){
+      var pattern = patterns[type][i];
+      loadPattern(pattern.name, type, pattern.path);
     }
   };
 

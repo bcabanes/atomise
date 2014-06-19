@@ -11,7 +11,7 @@ function BuildMenuVisitor() {
 
 BuildMenuVisitor.prototype.begin = function(node) {
   if (node.isLeaf()) {
-    this.menu += '<li><a href="#">'+capitaliseFirstLetter(node.getName())+'</a>';
+    this.menu += '<li><a href="#'+node.getPath()+'">'+capitaliseFirstLetter(node.getName())+'</a>';
   } else {
     this.menu += '<li class="sg--nav-'+node.getName().toLowerCase()+'"><a class="sg--acc-handle" href="#">'+node.getName().toUpperCase()+'</a>';
   }
@@ -24,6 +24,7 @@ BuildMenuVisitor.prototype.end = function(node) {
 BuildMenuVisitor.prototype.visitBeforeSons = function(node) {
   this.depth += 1;
   this.menu += '<ul class="sg--acc-panel'+(this.depth === 2 ? ' sg--sub-nav' : '')+'">';
+  this.menu += '<li><a class="sg--nav-view-all" href="#'+node.getPath()+'">View all</a></li>';
 };
 
 BuildMenuVisitor.prototype.visitAfterSons = function(node) {

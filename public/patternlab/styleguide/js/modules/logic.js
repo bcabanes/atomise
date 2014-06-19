@@ -51,10 +51,10 @@
    * Get all patterns
    */
   var getAllPatterns = function(){
-    var visitor = new BuildArrayVisitor();
     patternsTree = getPatternsTree();
-    patternsTree.acceptVisitor(visitor);
-    return visitor.getPatterns();
+    return patternsTree.find([
+      {name: "extension", value: "mustache"}
+    ]);
   };
 
   /**
@@ -70,25 +70,14 @@
       'templates': [],
       'pages': []
     };
-    for(var pattern in patterns){
-      var prefix = patterns[pattern].split('/')[0];
-      var obj = {};
-      obj[pattern] = patterns[pattern];
-      if(prefix == 'atoms'){
-        sortedPatterns.atoms.push(obj);
-        obj = null;
-      }else if(prefix == 'molecules'){
-        sortedPatterns.molecules.push(obj);
-        obj = null;
-      }else if(prefix == 'organisms'){
-        sortedPatterns.organisms.push(obj);
-        obj = null;
-      }else if(prefix == 'templates'){
-        sortedPatterns.templates.push(obj);
-        obj = null;
-      }else if(prefix == 'pages'){
-        sortedPatterns.pages.push(obj);
-        obj = null;
+    for(var i in patterns){
+      var pattern = patterns[i];
+      var prefix = pattern.path.split('/')[0];
+      for (var basePattern in sortedPatterns) {
+        if(prefix == basePattern){
+          sortedPatterns[basePattern].push(pattern);
+          break;
+        }
       }
     }
 

@@ -159,7 +159,11 @@ FindVisitor.prototype.begin = function(node) {
     }
   }
   if (bReturn) {
-    this.results.push(node.getPath());
+    this.results.push({
+      name: node.getName(),
+      path: node.getPath(),
+      type: node.getType()
+    });
   }
 };
 
