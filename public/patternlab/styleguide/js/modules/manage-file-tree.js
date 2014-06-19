@@ -156,6 +156,11 @@ FindVisitor.prototype.begin = function(node) {
           bReturn = false;
         }
         break;
+      case 'path':
+        if (node.getPath() !== filter.value) {
+          bReturn = false;
+        }
+        break;
     }
   }
   if (bReturn) {
