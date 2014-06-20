@@ -66,7 +66,10 @@
 
     if(pattern !== undefined){
       var patternsTree = patternlab.logic.getPatternsTree();
-      patterns = patternsTree.find([{name: "path", value: pattern}]);
+      patterns = patternsTree.find([
+        {name: "path", value: pattern},
+        {name: "extension", value: 'mustache'}
+      ]);
     }else{
       // Load all patterns
       patterns = patternlab.logic.getAllPatterns();

@@ -157,7 +157,7 @@ FindVisitor.prototype.begin = function(node) {
         }
         break;
       case 'path':
-        if (node.getPath() !== filter.value) {
+        if (node.getPath().substr(0, filter.value.length) != filter.value) {
           bReturn = false;
         }
         break;
