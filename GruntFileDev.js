@@ -24,7 +24,7 @@ module.exports = function(grunt) {
           },
           dist: {
             files: {
-              'public/css/main.css': 'public/scss/main.scss'
+              'public/atomise/styleguide/css/styleguide.css': 'public/atomise/styleguide/scss/main.scss'
             }
           }
         },
@@ -36,18 +36,17 @@ module.exports = function(grunt) {
             tasks: ['sass']
           },
           sass: {
-            files: 'public/scss/{,**/}*.scss',
+            files: 'public/atomise/styleguide/scss/{,**/}*.scss',
             tasks: ['sass']
           },
           livereload: {
-            // files: ['public/*.html', 'public/js/{,**/}*.js', 'public/css/{,*/}*.css', 'public/images/{,*/}*.{jpg,gif,svg,jpeg,png}'],
             files: [
-              'public/atomise/{,**/}*.{js, mustache}',
-              'public/*.html',
-              'public/js/{,**/}*.js',
-              'public/css/{,*/}*.css',
-              'public/scss/{,*/}*.scss',
-              'public/images/{,*/}*.{jpg,gif,svg,jpeg,png}'
+              'public/styleguide.html',
+              'public/atomise/sources/_patterns/**/*.mustache',
+              'public/atomise/styleguide/js/{,**/}*.js',
+              'public/atomise/styleguide/css/{,*/}*.css',
+              'public/atomise/styleguide/scss/{,*/}*.scss',
+              'public/atomise/styleguide/images/{,*/}*.{jpg,gif,svg,jpeg,png}'
             ],
             options: {
               livereload: true
@@ -78,11 +77,11 @@ module.exports = function(grunt) {
         /** OPEN BROWER **/
         open: {
           app: {
-            path: 'http://atomise.dev:9000/',
+            path: 'http://atomise.dev:9000/styleguide.html',
             app: 'Google Chrome'
           },
           dist: {
-            path: 'http://atomise.dev:9001/',
+            path: 'http://atomise.dev:9001/styleguide.html',
             app: 'Google Chrome'
           }
         }

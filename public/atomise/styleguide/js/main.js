@@ -1,0 +1,3 @@
+(function($) {
+  Atomise.init();
+}(jQuery));

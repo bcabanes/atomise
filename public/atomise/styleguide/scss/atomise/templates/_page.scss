@@ -1,0 +1,10 @@
+/* ==========================================================================
+   Atomise general page
+   ========================================================================== */
+
+#atomise-html, #atomise-body {
+  margin                   : 0;
+  padding                  : 0;
+  background               : $sg-tertiary;
+  -webkit-text-size-adjust : 100%;
+}
