@@ -1,0 +1,9 @@
+(function (angular) {
+    'use strict';
+
+    var constants = {{% constants.forEach(function (constant) { %}
+        '{%- constant.name %}': {%= constant.value %},{% }); %}
+    };
+
+    angular.module('{%- moduleName %}').constant('core.Constants', constants);
+})(angular);
