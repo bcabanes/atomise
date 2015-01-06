@@ -13,6 +13,7 @@
     function factory($http, $q) {
         var jsonUrl = '/sources/patterns.json',
             jsonData = null,
+            patternsPath = '/sources/_patterns/',
             patternsTree;
 
         /**
@@ -52,9 +53,9 @@
         };
 
         /**
-        * Return all patters from the tree
-        * @return {object} patterns
-        */
+         * Return all patters from the tree
+         * @return {object} patterns
+         */
         var getPatterns = function() {
             patternsTree = getTree();
             return patternsTree.find([{
@@ -64,12 +65,21 @@
         };
 
         /**
+         * Return the template path by given the template's name
+         * @return {string}
+         */
+        var getTemplatePath = function(name) {
+            return patternsPath + name;
+        };
+
+        /**
          * Public interface
          */
         return {
             'promise': promise,
             'get': getPatterns,
-            'getTree': getTree
+            'getTree': getTree,
+            'getPath': getTemplatePath
         };
     }
 
