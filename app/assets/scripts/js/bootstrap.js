@@ -6,4 +6,5 @@
     function bootstrap() {
         angular.bootstrap(document, ['app']);
     }
+    
 })(angular);

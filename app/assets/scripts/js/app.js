@@ -7,6 +7,7 @@
         'app.lang',
         'app.api',
         'app.user',
+        'app.pattern',
         'app.dashboard'
     ]);
 })(angular);

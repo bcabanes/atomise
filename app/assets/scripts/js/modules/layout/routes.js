@@ -15,7 +15,7 @@
 
         $urlRouterProvider.otherwise(function () {
             return (localStorage.getItem('locale') ||
-                Constants.LOCALE) + '/user/login';
+                Constants.LOCALE) + '/';
         });
 
         $stateProvider.state('layout', {

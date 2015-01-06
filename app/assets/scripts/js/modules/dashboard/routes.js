@@ -3,26 +3,34 @@
 
     angular.module('app.dashboard').config(config);
 
-    config.$inject = [
-        '$stateProvider'
-    ];
+    config.$inject = ['$stateProvider'];
 
-    function config($stateProvider) {
+    function config($stateProvider, pattern) {
         $stateProvider.state('layout.dashboard', {
             'url': '/dashboard',
             'abstract': true
         });
 
         $stateProvider.state('layout.dashboard.index', {
-            'url': '/index',
+            'url': '/',
             'views': {
                 '@': {
                     'controllerAs': 'vm',
                     'controller': 'dashboard.IndexController',
                     'templateUrl': '/assets/partials/dashboard/index.html'
                 }
+            },
+            /**
+             * Wait until the factory has loaded
+             * the json file to proceed with the route's controller
+             */
+            'resolve': {
+                patternResources: 'pattern.Factory',
+                patterns: function(patternResources){
+                    return patternResources.promise;
+                }
             }
-        })
+        });
     }
 
 })(angular);
