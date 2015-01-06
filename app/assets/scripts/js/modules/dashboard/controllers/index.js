@@ -12,6 +12,7 @@
         var vm = this;
 
 console.log('this is dashboard index controller');
+console.log('patterns tree', pattern.getTree());
 console.log('availables pattern', pattern.get());
 
     }

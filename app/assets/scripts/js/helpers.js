@@ -268,6 +268,19 @@ function UpdateVisitor(originPath) {
         return path;
     };
 
+    this.computeExtension = function(node) {
+        if (!node.isLeaf()) {
+            return false;
+        }
+
+        var aFilePart = node.getValue().split('.');
+        if (aFilePart.length < 2) {
+            return '';
+        }
+
+        return aFilePart.pop();
+    };
+
     this.computeType = function(node) {
         var type;
         switch(node.getExtension()) {
@@ -308,7 +321,7 @@ function UpdateVisitor(originPath) {
         node.setPath(this.computePath(node));
         node.setExtension(this.computeExtension(node));
         node.setType(this.computeType(node));
-        node.setName(this.computeName(name));
+        node.setName(this.computeName(node));
     };
 
     UpdateVisitor.prototype.end = function(node) {};

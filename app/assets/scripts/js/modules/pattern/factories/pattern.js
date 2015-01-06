@@ -10,32 +10,57 @@
         '$q'
     ];
 
-    function factory($http, $q, patterns) {
-        var self = this;
-        self.jsonUrl = '/sources/patterns.json';
-        self.data = null;
+    function factory($http, $q) {
+        var jsonUrl = '/sources/patterns.json',
+            jsonData = null,
+            patternsTree;
 
         /**
          * Load the json file
          * @return {object} $promise
          */
-        var promise = $http.get(self.jsonUrl).success(function(data){
-            self.data = data;
+        var promise = $http.get(jsonUrl).success(function(data){
+            jsonData = data;
         });
 
         /**
-         * Return all patterns unsorted
-         * @return {object} patterns unsorted
+         * Return the complete pattern Tree object
+         * @return {object} patterns Tree
          */
-        var getPatterns = function() {
-            return self.data;
+        var getTree = function() {
+            if(patternsTree === undefined){
+                patternsTree = setTree();
+            }
+            return patternsTree;
         };
 
         /**
          * Build pattern tree
          */
-        var buildPatternTree = function() {
+        var setTree = function() {
+            patternsTree = new FileTree();
+            patternsTree.init('.', [
+                'atoms',
+                'molecules',
+                'organisms',
+                'templates',
+                'pages'
+            ]);
+            patternsTree.setTree(jsonData);
 
+            return patternsTree;
+        };
+
+        /**
+        * Return all patters from the tree
+        * @return {object} patterns
+        */
+        var getPatterns = function() {
+            patternsTree = getTree();
+            return patternsTree.find([{
+                'name': 'extension',
+                'value': 'mustache'
+            }]);
         };
 
         /**
@@ -43,8 +68,9 @@
          */
         return {
             'promise': promise,
-            'get': getPatterns
-        }
+            'get': getPatterns,
+            'getTree': getTree
+        };
     }
 
 })(angular);
