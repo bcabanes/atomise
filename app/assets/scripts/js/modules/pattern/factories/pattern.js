@@ -1,3 +1,4 @@
+/* global FileTree */
 (function(angular) {
     'use strict';
 
