@@ -220,7 +220,7 @@ function FindVisitor(aFilters) {
         for(var i in this.filters) {
             var filter = this.filters[i];
             switch (filter.name) {
-                case 'extensiion':
+                case 'extension':
                     if(node.getExtension() !== filter.value) {
                         bReturn = false;
                     }
