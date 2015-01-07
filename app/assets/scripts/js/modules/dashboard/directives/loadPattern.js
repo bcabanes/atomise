@@ -20,8 +20,6 @@
 
         function link(scope, element, attrs) {
 
-console.log(scope.patterns);
-
             for(var category in scope.patterns) {
                 element.append('<div class="atomise-'+ category +'"><h1>' + category + '</h1></div>');
                 createPatterns(category, scope.patterns[category]);
