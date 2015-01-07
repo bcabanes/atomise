@@ -1,1 +1,1 @@
-["atoms","atoms/myatom.mustache","molecules","molecules/mymolecules.mustache","organisms","organisms/myorganism.mustache","pages","templates"]
+["atoms","atoms/groupname","atoms/groupname/myatom.mustache","atoms/myatom.mustache","molecules","molecules/mymolecules.mustache","organisms","organisms/myorganism.mustache","pages","templates"]
