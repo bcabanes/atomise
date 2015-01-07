@@ -32,10 +32,12 @@
             }
 
             function loadPattern(target, name, path) {
-                $http
-                    .get('/sources/_patterns/' + path)
+                $http.get('/sources/_patterns/' + path)
                     .success(function(data){
-                        var html = '<div class="atomise-element name">' + renderTemplate(data) + '</div>';
+                        var html = '<div class="atomise-element name">';
+                            html += '<h2 class="atomise-element-head">' + name + '</h2>';
+                            html += renderTemplate(data);
+                            html += '</div>';
                         element.find(target).append(html);
                     })
                     .error(function() {
