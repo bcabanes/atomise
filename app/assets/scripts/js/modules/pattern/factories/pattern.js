@@ -54,9 +54,17 @@
         };
 
         /**
-         * Return all patters from the tree
-         * @return {object} patterns
+         * Return the template path by given the template's name
+         * @return {string}
          */
+        var getTemplatePath = function(name) {
+            return patternsPath + name;
+        };
+
+        /**
+        * Return all patters from the tree
+        * @return {object} patterns
+        */
         var getPatterns = function() {
             patternsTree = getTree();
             return patternsTree.find([{
@@ -66,11 +74,31 @@
         };
 
         /**
-         * Return the template path by given the template's name
-         * @return {string}
+         * Sort patterns given in different categories
+         * @return {object} Sorted patterns
          */
-        var getTemplatePath = function(name) {
-            return patternsPath + name;
+        var sortPatterns = function() {
+            var patterns = getPatterns();
+            var categories = {
+                'atoms': [],
+                'molecules': [],
+                'organisms': [],
+                'templates': [],
+                'pages': []
+            };
+
+            for(var i in patterns) {
+                var pattern = patterns[i];
+                var prefix = pattern.path.split('/')[0];
+                for(var categorie in categories) {
+                    if(prefix === categorie) {
+                        categories[categorie].push(pattern);
+                        break;
+                    }
+                }
+            }
+
+            return categories;
         };
 
         /**
@@ -80,7 +108,8 @@
             'promise': promise,
             'get': getPatterns,
             'getTree': getTree,
-            'getPath': getTemplatePath
+            'getPath': getTemplatePath,
+            'sorted': sortPatterns
         };
     }
 
