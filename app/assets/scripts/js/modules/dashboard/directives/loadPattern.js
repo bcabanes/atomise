@@ -1,3 +1,4 @@
+/* global Mustache */
 (function(angular) {
     'use strict';
 
@@ -5,9 +6,9 @@
         .module('app.dashboard')
         .directive('loadPattern', directive);
 
-    directive.$inject = [];
+    directive.$inject = ['$http'];
 
-    function directive() {
+    function directive($http) {
         return {
             'restrict': 'E',
             'scope': {
@@ -19,7 +20,37 @@
 
         function link(scope, element, attrs) {
 
+console.log(scope.patterns);
+
+            for(var category in scope.patterns) {
+                element.append('<div class="atomise-'+ category +'"><h1>' + category + '</h1></div>');
+                createPatterns(category, scope.patterns[category]);
+            }
+
+            function createPatterns(category, patterns) {
+                for(var i in patterns) {
+                    loadPattern('.atomise-' + category, patterns[i].name, patterns[i].path);
+                }
+            }
+
+            function loadPattern(target, name, path) {
+                $http
+                    .get('/sources/_patterns/' + path)
+                    .success(function(data){
+                        var html = '<div class="atomise-element name">' + renderTemplate(data) + '</div>';
+                        element.find(target).append(html);
+                    })
+                    .error(function() {
+                        console.error('Error: ', 'The pattern can not be found.');
+                    });
+            }
+
+            function renderTemplate(template) {
+                // return Mustache.render(template);
+                return template;
+            }
         }
+
     }
 
 })(angular);
