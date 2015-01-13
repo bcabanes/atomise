@@ -20,7 +20,9 @@
         if($stateParams.hasOwnProperty('target')) {
             var target = {};
 
-            target.path = $stateParams.target.replace('--', '/');
+            target.path = $stateParams.target
+                                            .replace('--', '/')
+                                            .replace('---', '.');
             target.name = target.path
                                     .split('.')
                                     .shift()

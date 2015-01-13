@@ -47,7 +47,7 @@
 
         BuildMenuVisitor.prototype.begin = function(node) {
             if (node.isLeaf()) {
-                this.menu += '<li><a class="sg--nav-loadable" href="en/viewer/item/'+node.getPath().replace('/', '--')+'">'+capitaliseFirstLetter(node.getName())+'</a>';
+                this.menu += '<li><a class="sg--nav-loadable" href="en/viewer/item/'+node.getPath().replace('/', '--').replace('.', '---')+'">'+capitaliseFirstLetter(node.getName())+'</a>';
             } else {
                 this.menu += '<li class="has-dropdown not-click sg--nav-'+node.getName().toLowerCase()+'"><a class="sg--acc-handle" href="#">'+node.getName().toUpperCase()+'</a>';
             }
