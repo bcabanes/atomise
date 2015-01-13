@@ -5,6 +5,7 @@
         "angular-translate": "2.5.*",
         "jquery": "2.1.*",
         "mustache.js": "1.*",
+        "normalize-scss": "3.0.*",
         "ui-router": "0.2.*"
     }
 }
