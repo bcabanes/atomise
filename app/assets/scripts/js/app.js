@@ -8,6 +8,7 @@
         'app.api',
         'app.user',
         'app.pattern',
-        'app.dashboard'
+        'app.dashboard',
+        'app.viewer'
     ]);
 })(angular);
