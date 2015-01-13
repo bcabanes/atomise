@@ -24,6 +24,16 @@
                 'header@': {
                     'templateUrl': '/assets/partials/layout/header.html'
                 }
+            },
+            /**
+             * Wait until the factory has loaded
+             * the json file to proceed with the route's controller
+             */
+            'resolve': {
+                patternResources: 'pattern.Factory',
+                patterns: function(patternResources){
+                    return patternResources.promise;
+                }
             }
         });
     }
