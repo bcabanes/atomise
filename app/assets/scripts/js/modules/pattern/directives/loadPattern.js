@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-    .module('app.dashboard')
+    .module('app.pattern')
     .directive('loadPattern', directive);
 
     directive.$inject = ['$http', '$sce', '$q'];
@@ -14,7 +14,7 @@
             'scope': {
                 'path': '='
             },
-            'templateUrl': '/assets/partials/dashboard/directives/loadPattern.html',
+            'templateUrl': '/assets/partials/pattern/directives/loadPattern.html',
             'link': link
         };
 

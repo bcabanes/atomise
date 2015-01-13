@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.dashboard')
+        .module('app.pattern')
         .directive('loadPatternGroup', directive);
 
     directive.$inject = [];
@@ -13,7 +13,7 @@
             'scope': {
                 'patterns': '='
             },
-            'templateUrl': '/assets/partials/dashboard/directives/loadPatternGroup.html',
+            'templateUrl': '/assets/partials/pattern/directives/loadPatternGroup.html',
             'link': link
         };
 

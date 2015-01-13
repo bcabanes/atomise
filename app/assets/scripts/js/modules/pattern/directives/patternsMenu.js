@@ -1,7 +1,7 @@
 (function(angular) {
 
     angular
-        .module('app.dashboard')
+        .module('app.pattern')
         .directive('patternsMenu', directive);
 
     directive.$inject = [];
@@ -12,7 +12,7 @@
             'scope': {
                 'patternsTree': '='
             },
-            'templateUrl': 'assets/partials/dashboard/directives/patternsMenu.html',
+            'templateUrl': 'assets/partials/pattern/directives/patternsMenu.html',
             'link': link
         };
 
@@ -22,7 +22,7 @@
 
             patternsTree.acceptVisitor(visitor);
             scope.navigation = visitor.getMenu();
-            
+
             element.append(scope.navigation);
         }
     }

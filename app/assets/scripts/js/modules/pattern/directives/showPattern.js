@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.dashboard')
+        .module('app.pattern')
         .directive('showPattern', directive);
 
     directive.$inject = ['$http'];
@@ -14,7 +14,7 @@
                 'patterns': '=',
                 'group': '='
             },
-            'templateUrl': '/assets/partials/dashboard/directives/showPattern.html',
+            'templateUrl': '/assets/partials/pattern/directives/showPattern.html',
             'link': link
         };
 
