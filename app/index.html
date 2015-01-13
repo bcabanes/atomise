@@ -17,13 +17,13 @@
         <!-- endbuild -->
     </head>
     <body>
-        <section id="header" ui-view="header"></section>
+        <div id="header" ui-view="header"></div>
 
-        <section id="content">
-            <section ui-view></section>
-        </section>
+        <div id="content">
+            <div ui-view></div>
+        </div>
 
-        <section id="footer" ui-view="footer"></section>
+        <div id="footer" ui-view="footer"></div>
 
         <!-- build:js assets/scripts/vendors.min.js -->
         <script src="/assets/vendors/jquery/dist/jquery.js"></script>
