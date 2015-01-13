@@ -139,8 +139,7 @@ module.exports = function (grunt) {
         'sass': {
             'options': {
                 'sourceMap': true,
-                'outputStyle': 'compressed',
-                'includePaths': ['app/assets/vendors/foundation/scss/']
+                'outputStyle': 'compressed'
             },
             'app': {
                 'src': 'app/assets/styles/scss/app.scss',
