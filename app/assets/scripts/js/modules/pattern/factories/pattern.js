@@ -89,7 +89,7 @@
 
             for(var i in patterns) {
                 var pattern = patterns[i];
-                var prefix = pattern.path.split('/')[0];
+                var prefix = pattern.path.split('/').pop();
                 for(var categorie in categories) {
                     if(prefix === categorie) {
                         categories[categorie].push(pattern);
