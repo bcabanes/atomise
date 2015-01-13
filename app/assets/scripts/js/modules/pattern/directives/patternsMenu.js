@@ -1,3 +1,4 @@
+/* global jQuery */
 (function(angular) {
 
     angular
@@ -46,7 +47,7 @@
 
         BuildMenuVisitor.prototype.begin = function(node) {
             if (node.isLeaf()) {
-                this.menu += '<li><a class="sg--nav-loadable" href="#'+node.getPath()+'">'+capitaliseFirstLetter(node.getName())+'</a>';
+                this.menu += '<li><a class="sg--nav-loadable" href="en/viewer/item/'+node.getPath().replace('/', '--')+'">'+capitaliseFirstLetter(node.getName())+'</a>';
             } else {
                 this.menu += '<li class="has-dropdown not-click sg--nav-'+node.getName().toLowerCase()+'"><a class="sg--acc-handle" href="#">'+node.getName().toUpperCase()+'</a>';
             }
@@ -59,7 +60,9 @@
         BuildMenuVisitor.prototype.visitBeforeSons = function(node) {
             this.depth += 1;
             this.menu += '<ul class="dropdown">';
-            this.menu += '<li><a class="sg--nav-view-all sg--nav-loadable" href="#'+node.getPath()+'">View all</a></li>';
+            if(this.depth < 2) {
+                this.menu += '<li><a class="sg--nav-view-all sg--nav-loadable" href="en/viewer/group/'+node.getPath().replace('/', '--')+'">View all</a></li>';
+            }
         };
 
         BuildMenuVisitor.prototype.visitAfterSons = function(node) {

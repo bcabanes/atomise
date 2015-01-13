@@ -23,6 +23,28 @@
                 }
             }
         });
+
+        $stateProvider.state('layout.viewer.group', {
+            'url': '/group/*targets',
+            'views': {
+                '@': {
+                    'controllerAs': 'vm',
+                    'controller': 'viewer.GroupController',
+                    'templateUrl': '/assets/partials/viewer/group.html'
+                }
+            }
+        });
+
+        $stateProvider.state('layout.viewer.item', {
+            'url': '/item/*target',
+            'views': {
+                '@': {
+                    'controllerAs': 'vm',
+                    'controller': 'viewer.ItemController',
+                    'templateUrl': '/assets/partials/viewer/item.html'
+                }
+            }
+        });
     }
 
 })(angular);
