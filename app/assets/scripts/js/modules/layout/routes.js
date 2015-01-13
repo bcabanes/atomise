@@ -22,6 +22,8 @@
             'url': '/{locale:(?:' + Constants.LOCALES.join('|') + ')?}',
             'views': {
                 'header@': {
+                    'controllerAs': 'vm',
+                    'controller': 'layout.HeaderController',
                     'templateUrl': '/assets/partials/layout/header.html'
                 }
             },

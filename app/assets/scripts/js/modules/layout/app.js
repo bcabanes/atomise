@@ -3,6 +3,7 @@
 
     angular.module('app.layout', [
         'ui.router',
-        'app.core'
+        'app.core',
+        'app.pattern'
     ]);
 })(angular);
