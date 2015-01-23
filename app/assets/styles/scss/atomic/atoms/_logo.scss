@@ -4,8 +4,10 @@
 
 .#{$prefix}logo {
     margin: 0.1em 0.3em;
+    padding: 0;
     background: transparent url('/assets/images/atomise-logo.svg') center center no-repeat;
     background-size: 150% 150%;
+    display: inline-block;
     height: 1em;
     text-indent: -99em;
     width: 1em;
