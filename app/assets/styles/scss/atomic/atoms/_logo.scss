@@ -1,0 +1,18 @@
+/* ==========================================================================
+   Atomise logo
+   ========================================================================== */
+
+.#{$prefix}logo {
+    margin: 0.1em 0.3em;
+    background: transparent url('/assets/images/atomise-logo.svg') center center no-repeat;
+    background-size: 150% 150%;
+    height: 1em;
+    text-indent: -99em;
+    width: 1em;
+
+    a{
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+}

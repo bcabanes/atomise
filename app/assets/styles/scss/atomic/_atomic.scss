@@ -19,20 +19,13 @@
 @import "utilities/_grids";
 @import "utilities/_animations";
 
-
-/** Quarks
-========================================================================== */
-/*
- * Styles reserved for default HTML elements only. Default paragraphs, links, lists and micros. Style
- * guide stuff.
- */
-
 /** Atoms
 ========================================================================== */
 /*
  * CSS objects that can be extended from and into other elements of the site. Think of these as
  * the default relationships that can be used again and again without bloating the codebase.
  */
+@import "atoms/_logo";
 
 /** Molecules
 ========================================================================== */
