@@ -47,9 +47,9 @@
 
         BuildMenuVisitor.prototype.begin = function(node) {
             if (node.isLeaf()) {
-                this.menu += '<li><a class="sg--nav-loadable" href="en/viewer/item/'+node.getPath().replace('/', '--').replace('.', '---')+'">'+capitaliseFirstLetter(node.getName())+'</a>';
+                this.menu += '<li><a class="atomise--nav-loadable" href="en/viewer/item/'+node.getPath().replace('/', '--').replace('.', '---')+'">'+capitaliseFirstLetter(node.getName())+'</a>';
             } else {
-                this.menu += '<li class="has-dropdown not-click sg--nav-'+node.getName().toLowerCase()+'"><a class="sg--acc-handle" href="#">'+node.getName().toUpperCase()+'</a>';
+                this.menu += '<li class="atomise--has-dropdown atomise--nav-'+node.getName().toLowerCase()+'"><a class="attomise--acc-handle" href="#">'+node.getName().toUpperCase()+'</a>';
             }
         };
 
@@ -59,9 +59,9 @@
 
         BuildMenuVisitor.prototype.visitBeforeSons = function(node) {
             this.depth += 1;
-            this.menu += '<ul class="dropdown">';
+            this.menu += '<ul class="atomise--dropdown">';
             if(this.depth < 2) {
-                this.menu += '<li><a class="sg--nav-view-all sg--nav-loadable" href="en/viewer/group/'+node.getPath().replace('/', '--')+'">View all</a></li>';
+                this.menu += '<li><a class="atomise--nav-view-all atomise--nav-loadable" href="en/viewer/group/'+node.getPath().replace('/', '--')+'">View all</a></li>';
             }
         };
 
@@ -71,7 +71,7 @@
         };
 
         BuildMenuVisitor.prototype.getMenu = function() {
-            return '<ul class="left">'+this.menu+'</ul>';
+            return '<ul class="atomise--nav-list">'+this.menu+'</ul>';
         };
 
 })(angular);
