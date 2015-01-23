@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Breadcrumbs
+   ========================================================================== */
+
+.#{$prefix}breadcrumbs {
+    margin: 0.1em 1.5em;
+    padding: 0;
+    display: inline-block;
+    list-style: none;
+
+    li { display: inline-block; }
+    li:before {
+        margin: auto 0.3em;
+        content: " / ";
+    }
+    li:first-child:before {
+        margin: 0;
+        content: ' ';
+    }
+}
