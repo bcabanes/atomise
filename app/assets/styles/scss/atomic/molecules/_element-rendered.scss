@@ -1,0 +1,9 @@
+/* ==========================================================================
+   Atomise element rendered
+   ========================================================================== */
+
+.#{$prefix}element-rendered {
+    margin: 0.5em 1em;
+    padding: 0.2em 0.5em;
+    border: 1px solid lighten($light-grey, 40%);
+}
