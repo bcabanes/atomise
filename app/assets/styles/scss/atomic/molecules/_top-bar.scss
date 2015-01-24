@@ -1,0 +1,15 @@
+/* ==========================================================================
+   Top bar
+   ========================================================================== */
+
+.#{$prefix}top-bar {
+    padding: 0.2em 0.2em 0.2em 0;
+    background: #2196F3;
+    border-radius: 0 0 50% 0;
+    box-shadow: 0 3px 10px rgba($black,.23),
+                0 3px 10px rgba($black,.16);
+    display: inline-block;
+    left: 0;
+    position: fixed;
+    top: 0;
+}
