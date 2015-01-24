@@ -8,7 +8,7 @@ h3.#{$prefix}heading,
 h4.#{$prefix}heading,
 h5.#{$prefix}heading,
 h6.#{$prefix}heading {
-    color: lighten($black, 60%);
+    color: $grey;
     font-family: 'notosans', helvetica, sans-serif;
     font-weight: 400;
 }

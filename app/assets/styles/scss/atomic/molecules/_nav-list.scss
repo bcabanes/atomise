@@ -39,7 +39,7 @@
  */
 .#{$prefix}nav-list {
     &, a {
-        color: $black;
+        color: $grey;
         text-decoration: none;
     }
 
@@ -49,11 +49,11 @@
         line-height: 1.5rem;
         transition: background 150ms ease-out;
 
-        &:hover { background: lighten($black, 96%); }
+        &:hover { background: $light-blue; }
     }
 
     .#{$prefix}acc-handle:after {
-        color: lighten($black, 70%);
+        color: $light-grey;
         content: ' + ';
         float: right;
     }
@@ -61,9 +61,10 @@
 
     li {
         margin: 0;
-        border: 1px solid #fafafa;
+        border-top: 1px solid lighten($light-grey, 40%);
         overflow: hidden;
     }
+        li:first-child{ border-top: none; }
 
     ul.#{$prefix}active li{ border: none; }
 }
