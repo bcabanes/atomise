@@ -43,3 +43,8 @@
 }
 
 .#{$prefix}primary-nav h2{ text-align: center; }
+
+.#{$prefix}nav-section {
+    max-height: 50vh;
+    overflow: auto;
+}
