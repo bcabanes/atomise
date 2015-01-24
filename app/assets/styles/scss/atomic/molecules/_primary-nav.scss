@@ -5,71 +5,41 @@
 /**
  * Global container
  */
-.#{$prefix}primary-nav {
-
-}
-
-/**
- * Elements
- */
-.#{$prefix}nav-list {
+.#{$prefix}primary-nav {
+    padding: 2em 0;
+    background: $white;
+    border-radius: 3px;
+    box-shadow: 0 3px 10px rgba($black,.23),
+                0 3px 10px rgba($black,.16);
+    left: -100%;
+    position: fixed;
+    top: 0;
+    transition: left 450ms ease-out;
     width: 100%;
 
-    /**
-     * General behavior
-     */
-    &, ul {
-        margin: 0;
+    @media (min-width: $breakpoint-medium) {
+        left: -30%;
+        top: 10%;
+        width: 25%;
+    }
+
+    &.#{$prefix}show {
+        left: 0;
+    }
+
+    .#{$prefix}close{
+        margin: 0.5em;
         padding: 0;
-        list-style-type: none;
-    }
-
-    .#{$prefix}has-dropdown {
-        position: relative;
-    }
-
-    .#{$prefix}dropdown {
-        height: 0;
-        overflow: hidden;
+        background: transparent url('/assets/images/close.svg') center center no-repeat;
+        background-size: 150% 150%;
+        display: inline-block;
+        height: 1.5em;
         position: absolute;
-
-        &.#{$prefix}active{
-            height: auto;
-            position: relative;
-        }
+        right: 0;
+        text-indent: -99em;
+        top: 0;
+        width: 1.5em;
     }
 }
 
-/**
-* General styling
-*/
-.#{$prefix}nav-list {
-    &, a {
-        color: $black;
-        text-decoration: none;
-    }
-
-    a {
-        padding: 1rem;
-        display: block;
-        line-height: 1.5rem;
-        transition: background 150ms ease-out;
-
-        &:hover { background: lighten($black, 96%); }
-    }
-
-        .#{$prefix}acc-handle:after {
-            color: lighten($black, 70%);
-            content: ' + ';
-            float: right;
-        }
-            .#{$prefix}acc-handle.#{$prefix}active:after{ content: ' - '; }
-
-    li {
-        margin: 0;
-        border: 1px solid #fafafa;
-        overflow: hidden;
-    }
-
-    ul.#{$prefix}active li{ border: none; }
-}
+.#{$prefix}primary-nav h2{ text-align: center; }
