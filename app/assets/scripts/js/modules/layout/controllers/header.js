@@ -5,9 +5,9 @@
         .module('app.layout')
         .controller('layout.HeaderController', controller);
 
-    controller.$inject = ['pattern.Factory', '$rootScope'];
+    controller.$inject = ['pattern.Factory'];
 
-    function controller(pattern, $rootScope) {
+    function controller(pattern) {
         /* jshint validthis: true */
         var vm = this;
         vm.showNavigationPanel = false;
