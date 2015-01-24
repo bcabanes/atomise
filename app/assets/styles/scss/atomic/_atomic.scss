@@ -25,8 +25,8 @@
  * CSS objects that can be extended from and into other elements of the site. Think of these as
  * the default relationships that can be used again and again without bloating the codebase.
  */
+@import "atoms/_headings";
 @import "atoms/_logo";
-@import "atoms/_breadcrumbs";
 
 /** Molecules
 ========================================================================== */

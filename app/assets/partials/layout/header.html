@@ -1,14 +1,10 @@
 <div class="atomise--top-bar">
     <h1 class="atomise--logo"><a ng-click="vm.showNavigationPanel = !vm.showNavigationPanel">Atomise</a></h1>
-    <ul class="atomise--breadcrumbs">
-        <li>Pattern</li>
-        <li>pattern-name</li>
-    </ul>
 </div>
 
 <nav class="atomise--primary-nav" ng-class="{true: 'atomise--show', false: ''}[vm.showNavigationPanel]" role="navigation">
     <a class="atomise--close" ng-click="vm.showNavigationPanel = !vm.showNavigationPanel">close</a>
-    <h2>Navigation section</h2>
+    <h2 class="atomise--heading">Navigation section</h2>
     <section class="atomise--nav-section atomise--pattern-section">
         <patterns-menu patterns-tree="vm.patternsTree"></patterns-menu>
     </section>
