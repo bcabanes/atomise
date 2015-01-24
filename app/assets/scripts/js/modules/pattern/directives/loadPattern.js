@@ -21,7 +21,7 @@
         function link(scope, element, attrs) {
             scope.template = '';
             scope.templateTemp = '';
-            scope.jsonPath = scope.path.split('.')[0]+'.json';
+            scope.jsonPath = scope.path.split('.').shift()+'.json';
             scope.settings = {};
 
             scope.templatePromise = $q.defer();
