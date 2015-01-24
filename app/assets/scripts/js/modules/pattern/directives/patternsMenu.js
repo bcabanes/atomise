@@ -25,6 +25,32 @@
             scope.navigation = visitor.getMenu();
 
             element.append(scope.navigation);
+
+            /**
+             * Menu's interactions
+             */
+            element
+                .children('.atomise--acc-handle')
+                .on('click', handleDropdown);
+
+
+            function handleDropdown(event) {
+                var target = angular.element(event.target);
+                var dropdown = target.next();
+
+
+                if(target.hasClass('atomise--active')) {
+                    target.removeClass('atomise--active');
+                }else{
+                    target.addClass('atomise--active');
+                }
+
+                if(dropdown.hasClass('atomise--active')) {
+                    dropdown.removeClass('atomise--active');
+                }else{
+                    dropdown.addClass('atomise--active');
+                }
+            }
         }
     }
 
@@ -49,7 +75,7 @@
             if (node.isLeaf()) {
                 this.menu += '<li><a class="atomise--nav-loadable" href="en/viewer/item/'+node.getPath().replace('/', '--').replace('.', '---')+'">'+capitaliseFirstLetter(node.getName())+'</a>';
             } else {
-                this.menu += '<li class="atomise--has-dropdown atomise--nav-'+node.getName().toLowerCase()+'"><a class="attomise--acc-handle" href="#">'+node.getName().toUpperCase()+'</a>';
+                this.menu += '<li class="atomise--has-dropdown atomise--nav-'+node.getName().toLowerCase()+'"><a class="atomise--acc-handle" href="#">'+node.getName().toUpperCase()+'</a>';
             }
         };
 
