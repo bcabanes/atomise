@@ -1,0 +1,15 @@
+/* ==========================================================================
+   Resize handle
+   ========================================================================== */
+
+.#{$prefix}resize-handle {
+    margin: 0;
+    padding: 0;
+    background: $grey;
+    cursor: col-resize;
+    height: 100%;
+    position: absolute;
+    right: -5px;
+    top: 0;
+    width: 10px;
+}
