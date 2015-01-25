@@ -5,3 +5,16 @@
 .#{$prefix}element {
     overflow: hidden;
 }
+    .#{$prefix}element .#{$prefix}heading {
+        padding-left: 1.5em;
+        position: relative;
+
+        &:before {
+            margin-left: -0.8em;
+            background: $light-grey;
+            content: ' ';
+            height: 100%;
+            position: absolute;
+            width: 0.5em;
+        }
+    }
