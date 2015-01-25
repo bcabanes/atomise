@@ -4,12 +4,25 @@
 
 .#{$prefix}resize-inputs {
     margin: 0;
-    padding: 0;
+    padding: 0.4em 1em;
+    background: $white;
+    border-radius: 3px;
+    box-shadow: 0 3px 10px rgba($black,.23),
+                0 3px 10px rgba($black,.16);
+    font-size: 0.4rem;
     list-style: none;
 
-    li{
+    li {
         display: inline-block;
     }
 
-        input{ width: 5.5em; }
+        input { width: 5.5em; }
+        button {
+            padding: 0.2em 0.4em;
+            border: none;
+            background: $white;
+            color: $grey;
+            outline: none;
+            text-transform: uppercase;
+        }
 }
