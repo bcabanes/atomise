@@ -9,7 +9,9 @@
     function directive() {
         return {
             'restrict': 'A',
-            'scope': {},
+            'scope': {
+                'width': '@'
+            },
             'link': link
         };
 
@@ -18,16 +20,15 @@
             /**
              * Setting variables
              */
-            var defaultWidth = (attrs.resizeViewport != null)? attrs.resizeViewport: window.width;
-            setWidth(defaultWidth);
+            var defaultWidth = (attrs.width != null) ? attrs.width: window.width;
 
             /**
              * Watch for changes
              */
-            scope.$watch(attrs.resizeViewport, setWidth);
+            attrs.$observe('width',setWidth);
 
             /**
-             * Setting viewport width with the value given
+             * Set viewport width with new value
              */
             function setWidth(value) {
                 element[0]
