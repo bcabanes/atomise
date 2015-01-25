@@ -21,6 +21,8 @@
                 maxViewportWidth = 2600, // Maxiumum Size for Viewport
                 minViewportWidth = 240; // Minimum Size for Viewport
 
+            scope.pixels = clientWidth;
+
             /**
              * Handle input's interaction
              */
@@ -40,28 +42,48 @@
              * Set small
              */
             scope.setSmall = function() {
-                sendEvent(randomize(minViewportWidth, 500));
+                var eventInfos = {
+                    'type': 'input',
+                    'value' : randomize(minViewportWidth, 500)
+                };
+                sendEvent(eventInfos);
+                scope.pixels = eventInfos.value;
             };
 
             /**
              * Set medium
              */
             scope.setMedium = function() {
-                sendEvent(randomize(500, 800));
+                var eventInfos = {
+                    'type': 'input',
+                    'value' : randomize(500, 800)
+                };
+                sendEvent(eventInfos);
+                scope.pixels = eventInfos.value;
             };
 
             /**
              * Set large
              */
             scope.setLarge = function() {
-                sendEvent(randomize(800, 1300));
+                var eventInfos = {
+                    'type': 'input',
+                    'value' : randomize(800, 1300)
+                };
+                sendEvent(eventInfos);
+                scope.pixels = eventInfos.value;
             };
 
             /**
              * Set full
              */
             scope.setFull = function() {
-                sendEvent(clientWidth);
+                var eventInfos = {
+                    'type': 'input',
+                    'value' : clientWidth
+                };
+                sendEvent(eventInfos);
+                scope.pixels = eventInfos.value;
             };
 
             /**
@@ -69,6 +91,16 @@
              */
             function sendEvent(value) {
                 $rootScope.$emit('viewportWidth', value);
+            }
+
+            /**
+             * Update the input field
+             * @param {object} event
+             * @param {string} value
+             */
+            $rootScope.$on('viewportUpdateInput', updateInput);
+            function updateInput(event, value) {
+                scope.pixels = value;
             }
 
         }

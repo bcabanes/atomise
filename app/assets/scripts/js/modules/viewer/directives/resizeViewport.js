@@ -19,7 +19,10 @@
             /**
              * Setting variables
              */
-            var defaultWidth = window.width;
+            var resizeHandleWidth = 10;
+            var defaultWidth = window.innerWidth;
+
+            setWidth(false, defaultWidth);
 
             /**
              * Watch for changes
@@ -29,10 +32,27 @@
             /**
              * Set viewport width with new value
              */
-            function setWidth(event, value) {
-                element[0]
-                    .style
-                    .width = value + 'px';
+            function setWidth(event, data) {
+                if(data.type === 'input'){
+                    element[0]
+                        .style
+                        .width = parseInt(data.value - resizeHandleWidth) + 'px';
+
+                    $rootScope.$emit('viewportUpdateInput', data.value);
+                }else if(data.type === 'drag'){
+                    var value = defaultWidth + data.value;
+                    element[0]
+                        .style
+                        .width = parseInt(value - resizeHandleWidth) + 'px';
+
+                    $rootScope.$emit('viewportUpdateInput', parseInt(value - resizeHandleWidth));
+                }else{
+                    element[0]
+                        .style
+                        .width = parseInt(data - resizeHandleWidth) + 'px';
+
+                    $rootScope.$emit('viewportUpdateInput', data);
+                }
             }
         }
     }
