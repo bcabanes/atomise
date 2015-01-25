@@ -1,17 +1,16 @@
 (function(angular) {
+    'use strict';
 
     angular
         .module('app.viewer')
         .directive('resizeViewport', directive);
 
-    directive.$inject = [];
+    directive.$inject = ['$rootScope'];
 
-    function directive() {
+    function directive($rootScope) {
         return {
             'restrict': 'A',
-            'scope': {
-                'width': '@'
-            },
+            'scope': {},
             'link': link
         };
 
@@ -20,17 +19,17 @@
             /**
              * Setting variables
              */
-            var defaultWidth = (attrs.width != null) ? attrs.width: window.width;
+            var defaultWidth = window.width;
 
             /**
              * Watch for changes
              */
-            attrs.$observe('width',setWidth);
+            $rootScope.$on('viewportWidth', setWidth);
 
             /**
              * Set viewport width with new value
              */
-            function setWidth(value) {
+            function setWidth(event, value) {
                 element[0]
                     .style
                     .width = value + 'px';
