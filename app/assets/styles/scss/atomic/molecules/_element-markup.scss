@@ -9,4 +9,10 @@
     color: $white;
     border: 1px solid lighten($light-grey, 40%);
     font-size: 0.8rem;
+    max-height: 0;
+    overflow: hidden;
+    position: relative;
+    transition: all 325ms ease-out;
+
+    &.#{$prefix}show{ max-height: 25em; }
 }

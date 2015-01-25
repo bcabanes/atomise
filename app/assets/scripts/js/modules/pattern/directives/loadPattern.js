@@ -60,6 +60,16 @@
                 // return template;
             }
 
+            /**
+             * Show/hide template markup
+             */
+            scope.templateMarkupDisplay = function() {
+                element
+                    .children()
+                    .eq(2)
+                    .toggleClass('atomise--show');
+            };
+
         }
 
     }

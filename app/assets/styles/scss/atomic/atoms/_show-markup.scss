@@ -1,0 +1,18 @@
+/* ==========================================================================
+   Show markup button
+   ========================================================================== */
+
+.#{$prefix}show-markup {
+    background: transparent url('/assets/images/html-tag.svg') center center;
+    background-size: 150% 150%;
+    border: none;
+    height: 1em;
+    opacity: 0.5;
+    outline: none;
+    overflow: hidden;
+    text-indent: -9em;
+    transition: opacity 150ms ease-out;
+    width: 1.5em;
+
+    &:hover { opacity: 0.8; }
+}
