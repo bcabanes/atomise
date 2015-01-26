@@ -3,7 +3,8 @@
 
     angular.module('app.dashboard', [
         'ui.router',
-        'app.pattern'
+        'app.pattern',
+        'angularCharts'
     ]);
 
 })(angular);
