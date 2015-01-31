@@ -33,7 +33,10 @@
              * Set viewport width with new value
              */
             function setWidth(event, data) {
+                element.removeClass('atomise--animate');
+
                 if(data.type === 'input'){
+                    element.addClass('atomise--animate');
                     element[0]
                         .style
                         .width = parseInt(data.value - resizeHandleWidth) + 'px';
@@ -47,6 +50,7 @@
 
                     $rootScope.$emit('viewportUpdateInput', parseInt(value - resizeHandleWidth));
                 }else{
+                    element.addClass('atomise--animate');
                     element[0]
                         .style
                         .width = parseInt(data - resizeHandleWidth) + 'px';

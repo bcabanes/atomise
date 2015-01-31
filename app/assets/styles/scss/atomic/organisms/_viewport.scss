@@ -8,6 +8,10 @@
     background: $white;
     border: 1px solid lighten($light-grey, 40%);
     position: relative;
+
+    &.#{$prefix}animate {
+        transition: width 250ms ease-out;
+    }
 }
 
 .#{$prefix}viewport-container {
