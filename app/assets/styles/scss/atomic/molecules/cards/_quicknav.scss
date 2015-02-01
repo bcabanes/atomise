@@ -8,13 +8,17 @@
     list-style: none;
 
     li {
-        float:left;
-        width: 20%;
+        display: block;
+
+        @media (min-width: $breakpoint-medium) {
+            display: inline-block;
+            width: 19.5%;
+        }
     }
 
     li a {
         margin: 0.2rem;
-        padding: 0.3rem 0;
+        padding: 0.8rem 0.4em;
         background: $blue;
         color: $white;
         display: block;
