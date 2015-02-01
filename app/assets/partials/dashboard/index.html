@@ -1,8 +1,42 @@
-dashboard view
+<div class="atomise--cards-wrap">
+    <div class="atomise--cards-container">
+        <div class="atomise--statistics atomise--card">
+                <div
+                ac-chart="'bar'"
+                ac-data="vm.chartData"
+                ac-config="vm.chartconfig"
+                id='chart'
+                class='chart' style="height: 200px;
+                width: 100%;">
+            </div>
 
-<div
-    ac-chart="'bar'"
-    ac-data="vm.chartData"
-    ac-config="vm.chartconfig"
-    id='chart'
-    class='chart' style="height: 200px; width: 400px;font-size: 0.6rem;"></div>
+        </div>
+
+        <nav class="atomise--quicknav atomise--card">
+            <ul>
+                <li><a href="/en/viewer/group/atoms">atoms<span>view all</span></a></li>
+                <li><a href="/en/viewer/group/molecules">molecules<span>view all</span></a></li>
+                <li><a href="/en/viewer/group/organisms">organisms<span>view all</span></a></li>
+                <li><a href="/en/viewer/group/templates">templates<span>view all</span></a></li>
+                <li><a href="/en/viewer/group/pages">pages<span>view all</span></a></li>
+            </ul>
+        </nav>
+
+        <div class="atomise--welcome atomise--card">
+            <h1>Hello you! Thanks for using Atomise!</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga eius odit, voluptatum repudiandae rerum, quo facere eligendi neque consectetur mollitia et eveniet, sint aperiam alias eos expedita ducimus nihil atque.</p>
+        </div>
+
+        <div class="atomise--description atomise--card">
+            <h2>description</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil perferendis, enim est fugit doloribus incidunt officia aliquid exercitationem sint eligendi autem, animi deserunt, totam dolorem quasi ipsum minima. Molestias, earum.</p>
+        </div>
+
+        <div class="atomise--memo atomise--card">
+            <h2>memo</h2>
+            <p>lorem</p>
+        </div>
+
+        </div>
+
+</div>

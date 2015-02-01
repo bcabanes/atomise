@@ -1,0 +1,36 @@
+/* ==========================================================================
+   Atomise quicknav card
+   ========================================================================== */
+
+.#{$prefix}quicknav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+        float:left;
+        width: 20%;
+    }
+
+    li a {
+        margin: 0.2rem;
+        padding: 0.3rem 0;
+        background: $blue;
+        color: $white;
+        display: block;
+        font-size: 1.2rem;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: background 100ms ease-out;
+
+        &:hover { background: $light-grey; }
+
+        span{
+            display: block;
+            font-size: 0.5rem;
+            font-style: italic;
+            text-transform: lowercase;
+        }
+    }
+}
