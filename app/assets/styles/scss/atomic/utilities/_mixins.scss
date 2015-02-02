@@ -32,6 +32,16 @@
 }
 
 /**
+ * Responsive image
+ * Keep images from scaling beyond the width of their parents.
+ */
+@mixin responsive-image($display: block) {
+    display: $display;
+    max-width: 100%; // Part 1: Set a maximum relative to the parent
+    height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+}
+
+/**
  * We use this to create isosceles triangles
  * $triangle-size - Used to set border-size. No default, set a px or em size.
  * $triangle-color - Used to set border-color which makes up triangle. No default
