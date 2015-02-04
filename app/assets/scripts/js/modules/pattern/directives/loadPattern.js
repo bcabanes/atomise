@@ -64,6 +64,7 @@
 
             /**
              * Inject content into an iframe
+             * TODO: Refact and see for sandboxed iframe with seamless argument
              */
             function iframeInject() {
                 var linkCSS = '<link rel="stylesheet" href="/assets/styles/css/app.min.css">';
