@@ -53,11 +53,34 @@
             $q.all([scope.templatePromise.promise, scope.settingsPromise.promise])
                 .then(function() {
                     scope.template = $sce.trustAsHtml(rendering(scope.templateTemp, scope.settings));
+                    // Inject content into the iframe
+                    iframeInject();
                 });
 
             function rendering(template, settings) {
                 return Mustache.render(template, settings);
                 // return template;
+            }
+
+            /**
+             * Inject content into an iframe
+             */
+            function iframeInject() {
+                var linkCSS = '<link rel="stylesheet" href="/assets/styles/css/app.min.css">';
+                var iframe = element
+                                .find('iframe')[0]
+                                .contentWindow.document;
+                /**
+                 * Iframe creation
+                 */
+                iframe.open();
+                iframe.write(linkCSS);
+                iframe.close();
+
+                /**
+                 * Injecting custom content
+                 */
+                iframe.body.innerHTML = scope.template;
             }
 
             /**
