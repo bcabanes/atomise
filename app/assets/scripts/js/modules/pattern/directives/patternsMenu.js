@@ -73,7 +73,7 @@
 
         BuildMenuVisitor.prototype.begin = function(node) {
             if (node.isLeaf()) {
-                this.menu += '<li><a class="atomise--nav-loadable" href="en/viewer/item/'+node.getPath().replace('/', '--').replace('.', '---')+'">'+capitaliseFirstLetter(node.getName())+'</a>';
+                this.menu += '<li><a class="atomise--nav-loadable" href="viewer/item/'+node.getPath().replace('/', '--').replace('.', '---')+'">'+capitaliseFirstLetter(node.getName())+'</a>';
             } else {
                 this.menu += '<li class="atomise--has-dropdown atomise--nav-'+node.getName().toLowerCase()+'"><a class="atomise--acc-handle" href="#">'+node.getName().toUpperCase()+'</a>';
             }
@@ -87,7 +87,7 @@
             this.depth += 1;
             this.menu += '<ul class="atomise--dropdown">';
             if(this.depth < 2) {
-                this.menu += '<li><a class="atomise--nav-view-all atomise--nav-loadable" href="en/viewer/group/'+node.getPath().replace('/', '--')+'">View all</a></li>';
+                this.menu += '<li><a class="atomise--nav-view-all atomise--nav-loadable" href="viewer/group/'+node.getPath().replace('/', '--')+'">View all</a></li>';
             }
         };
 

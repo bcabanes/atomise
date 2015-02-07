@@ -13,13 +13,10 @@
     function config($locationProvider, $urlRouterProvider, $stateProvider, Constants) {
         $locationProvider.html5Mode(true);
 
-        $urlRouterProvider.otherwise(function () {
-            return (localStorage.getItem('locale') ||
-                Constants.LOCALE) + '/';
-        });
+        $urlRouterProvider.otherwise('/dashboard/');
 
         $stateProvider.state('layout', {
-            'url': '/{locale:(?:' + Constants.LOCALES.join('|') + ')?}',
+            'abstract': true,
             'views': {
                 'header@': {
                     'controllerAs': 'vm',
