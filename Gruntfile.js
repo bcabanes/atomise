@@ -129,9 +129,8 @@ module.exports = function (grunt) {
             },
             'dev': {
                 'constants': {
-                    'LOCALE': 'en',
-                    'LOCALES': ['en', 'fr'],
-                    'API_URL': 'http://localhost:8000'
+                    'CSSFile': ['http://pathtocssfile'],
+                    'JSFile': ['http://pathtojsfile']
                 }
             }
         },
