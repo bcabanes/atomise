@@ -27,6 +27,9 @@
             scope.templatePromise = $q.defer();
             scope.settingsPromise = $q.defer();
 
+            /**
+             * Load mustache template
+             */
             $http.get('/sources/_patterns/' + scope.path)
                 .success(function(data) {
                     scope.templateTemp = data;
@@ -36,6 +39,9 @@
                     console.error('Error: ', 'The pattern can not be found.');
                 });
 
+            /**
+             * Load associated json settings
+             */
             $http.get('/sources/_patterns/' + scope.jsonPath)
                 .success(function(data) {
                     scope.settings = data;
