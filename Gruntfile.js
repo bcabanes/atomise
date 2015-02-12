@@ -129,7 +129,7 @@ module.exports = function (grunt) {
             },
             'dev': {
                 'constants': {
-                    'CSSFile': ['http://pathtocssfile'],
+                    'CSSFile': ['/sources/custom.css'],
                     'JSFile': ['http://pathtojsfile']
                 }
             }

@@ -1,0 +1,27 @@
+/**
+ * This is your custom style for your elements
+ */
+
+/* ==========================================================================
+   Swatch
+   ========================================================================== */
+
+    .atomise--swatch {
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #ECEEEF;
+        display: inline-block;
+        font-size: 0.8rem;
+        height: 170px;
+        position: relative;
+        width: 130px;
+    }
+
+    .atomise--swatch-footer{
+        padding-top: 5px;
+        bottom: 10px;
+        font-size: 0.6rem;
+        opacity: 0.7;
+        position: absolute;
+        text-transform: uppercase;
+    }

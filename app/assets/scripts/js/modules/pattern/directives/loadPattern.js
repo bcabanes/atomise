@@ -3,12 +3,18 @@
     'use strict';
 
     angular
-    .module('app.pattern')
-    .directive('loadPattern', directive);
+        .module('app.pattern')
+        .directive('loadPattern', directive);
 
-    directive.$inject = ['$http', '$sce', '$q'];
+    directive.$inject = [
+        '$http',
+        '$sce',
+        '$q',
+        'core.Constants',
+        '$timeout'
+    ];
 
-    function directive($http, $sce, $q) {
+    function directive($http, $sce, $q, constants, $timeout) {
         return {
             'restrict': 'E',
             'scope': {
@@ -73,21 +79,29 @@
              * TODO: Refact and see for sandboxed iframe with seamless argument
              */
             function iframeInject() {
-                var linkCSS = '<link rel="stylesheet" href="/assets/styles/css/app.min.css">';
-                var iframe = element
-                                .find('iframe')[0]
-                                .contentWindow.document;
+                var linkCSS = '<link rel="stylesheet" href="'+constants['CSSFile']+'">';
+                var iframe = element.find('iframe')[0];
+                var iframeContent = iframe.contentWindow.document;
+
                 /**
                  * Iframe creation
                  */
-                iframe.open();
-                iframe.write(linkCSS);
-                iframe.close();
+                iframeContent.open();
+                iframeContent.write(linkCSS);
+                iframeContent.close();
 
                 /**
                  * Injecting custom content
                  */
-                iframe.body.innerHTML = scope.template;
+                iframeContent.body.innerHTML = scope.template;
+
+                /**
+                 * Setting height accordingly to the content
+                 */
+                $timeout(function() {
+                    iframe.height = iframeContent.body.scrollHeight + 'px';
+                    iframe.width = iframeContent.body.scrollWidth + 'px';
+                }, 200);
             }
 
             /**
