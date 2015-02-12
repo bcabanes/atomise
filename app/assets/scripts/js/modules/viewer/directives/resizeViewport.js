@@ -27,36 +27,39 @@
             /**
              * Watch for changes
              */
-            $rootScope.$on('viewportWidth', setWidth);
+            $rootScope.$on('viewportWidth', prepareSetWidth);
+
+            /**
+             * Prepare the value for setting the width
+             */
+            function prepareSetWidth(event, data) {
+                 element.removeClass('atomise--animate');
+
+                 if(data.type === 'input'){
+                     element.addClass('atomise--animate');
+                     setWidth(data.value);
+
+                     $rootScope.$emit('viewportUpdateInput', data.value);
+                 }else if(data.type === 'drag'){
+                     var value = defaultWidth + data.value;
+                     setWidth(value);
+
+                     $rootScope.$emit('viewportUpdateInput', parseInt(value - resizeHandleWidth));
+                 }else{
+                     element.addClass('atomise--animate');
+                     setWidth(data);
+
+                     $rootScope.$emit('viewportUpdateInput', data);
+                 }
+             }
 
             /**
              * Set viewport width with new value
              */
-            function setWidth(event, data) {
-                element.removeClass('atomise--animate');
-
-                if(data.type === 'input'){
-                    element.addClass('atomise--animate');
-                    element[0]
-                        .style
-                        .width = parseInt(data.value - resizeHandleWidth) + 'px';
-
-                    $rootScope.$emit('viewportUpdateInput', data.value);
-                }else if(data.type === 'drag'){
-                    var value = defaultWidth + data.value;
-                    element[0]
-                        .style
-                        .width = parseInt(value - resizeHandleWidth) + 'px';
-
-                    $rootScope.$emit('viewportUpdateInput', parseInt(value - resizeHandleWidth));
-                }else{
-                    element.addClass('atomise--animate');
-                    element[0]
-                        .style
-                        .width = parseInt(data - resizeHandleWidth) + 'px';
-
-                    $rootScope.$emit('viewportUpdateInput', data);
-                }
+            function setWidth(value) {
+                element[0]
+                    .style
+                    .width = parseInt(value - resizeHandleWidth) + 'px';
             }
         }
     }
