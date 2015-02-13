@@ -19,8 +19,9 @@
             /**
              * Setting variables
              */
-            var resizeHandleWidth = 10;
-            var defaultWidth = window.innerWidth;
+            var resizeHandleWidth = 10,
+                defaultWidth = window.innerWidth,
+                minWidth = 221;
 
             setWidth(false, defaultWidth);
 
@@ -57,9 +58,11 @@
              * Set viewport width with new value
              */
             function setWidth(value) {
-                element[0]
-                    .style
-                    .width = parseInt(value - resizeHandleWidth) + 'px';
+                if(value > minWidth) {
+                    element[0]
+                        .style
+                        .width = parseInt(value - resizeHandleWidth) + 'px';
+                }
             }
         }
     }
