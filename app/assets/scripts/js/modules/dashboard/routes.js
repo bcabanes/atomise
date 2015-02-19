@@ -1,5 +1,5 @@
 (function(angular) {
-    'user strict';
+    'use strict';
 
     angular.module('app.dashboard').config(config);
 
